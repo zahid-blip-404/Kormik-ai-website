@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "project": "Kormik Website",
+    "description": "Design tokens extracted from tailwind.config.ts and globals.css. Import into Figma via the Tokens Studio plugin, or use in Relume's style settings.",
+    "lastUpdated": "2026-04-02"
+  },
+
+  "colors": {
+    "background": {
+      "default": "#050505",
+      "2":        "#0D0D0D",
+      "3":        "#161616",
+      "4":        "#1C1C1C"
+    },
+    "border": {
+      "default": "#222222",
+      "subtle":  "#1A1A1A",
+      "strong":  "#333333"
+    },
+    "brand": {
+      "default": "#FF5C1A",
+      "2":       "#FF9F4A",
+      "3":       "#FFD580",
+      "hover":   "#FF7A42",
+      "muted":   "rgba(255,92,26,0.10)",
+      "glow":    "rgba(255,92,26,0.06)"
+    },
+    "text": {
+      "primary":   "#FFFFFF",
+      "secondary": "#B8B8B8",
+      "muted":     "#888888",
+      "ghost":     "#666666"
+    },
+    "success": "#22C55E"
+  },
+
+  "typography": {
+    "fonts": {
+      "display": "Plus Jakarta Sans",
+      "body":    "Inter",
+      "mono":    "IBM Plex Mono"
+    },
+    "googleFontsUrl": "https://fonts.google.com/share?selection.family=Plus+Jakarta+Sans:wght@400;500;600;700;800|Inter:wght@400;500;600|IBM+Plex+Mono:wght@400;500",
+    "weights": {
+      "regular":    400,
+      "medium":     500,
+      "semibold":   600,
+      "bold":       700,
+      "extrabold":  800
+    },
+    "scale": {
+      "heroLarge":   "clamp(38px, 6vw, 72px)",
+      "heroMedium":  "clamp(22px, 3vw, 38px)",
+      "h1":          "clamp(32px, 5vw, 60px)",
+      "h2":          "48px (md: 56px)",
+      "h3":          "24px",
+      "body":        "16px",
+      "bodyLg":      "18px",
+      "small":       "14px",
+      "mono":        "10-11px",
+      "label":       "11px uppercase tracking-[0.18em]"
+    }
+  },
+
+  "spacing": {
+    "sectionPaddingY":      "80px (md: 128px)",
+    "maxContentWidth":      "1152px",
+    "containerPaddingX":    "16px (md: 32px)",
+    "cardPaddingInternal":  "24px (md: 32px)",
+    "cardGap":              "20px"
+  },
+
+  "borderRadius": {
+    "button": "10px",
+    "card":   "12px",
+    "large":  "16px",
+    "pill":   "9999px"
+  },
+
+  "shadows": {
+    "brandSm": "0 4px 12px rgba(255,92,26,0.2), 0 2px 0 rgba(100,25,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2)",
+    "brandMd": "0 8px 28px rgba(255,92,26,0.45), 0 3px 0 rgba(100,25,0,0.7), inset 0 1px 0 rgba(255,255,255,0.28)",
+    "brandLg": "0 16px 48px rgba(255,92,26,0.6), 0 4px 0 rgba(100,25,0,0.8), inset 0 1px 0 rgba(255,255,255,0.3)"
+  },
+
+  "glassmorphism": {
+    "sm": {
+      "background": "rgba(255,255,255,0.03)",
+      "border":     "1px solid rgba(255,255,255,0.07)",
+      "backdropBlur": "12px",
+      "usage": "Navbar on scroll, subtle overlays"
+    },
+    "md": {
+      "background": "rgba(255,255,255,0.05)",
+      "border":     "1px solid rgba(255,255,255,0.10)",
+      "backdropBlur": "24px",
+      "usage": "Feature cards, testimonial cards, FAQ cards"
+    },
+    "brand": {
+      "background": "rgba(255,92,26,0.06)",
+      "border":     "1px solid rgba(255,92,26,0.18)",
+      "backdropBlur": "16px",
+      "usage": "Featured card highlight, icon backgrounds, pull quotes"
+    },
+    "dark": {
+      "background": "rgba(0,0,0,0.5)",
+      "border":     "1px solid rgba(255,255,255,0.05)",
+      "backdropBlur": "32px",
+      "usage": "Stats strip, footer, impact section background"
+    }
+  },
+
+  "gradients": {
+    "brandText":   "linear-gradient(90deg, #FF5C1A 0%, #FF9F4A 50%, #FFD580 100%)",
+    "brandShort":  "linear-gradient(90deg, #FF5C1A, #FF9F4A)",
+    "brandButton": "linear-gradient(to bottom right, #FF5C1A, #FF7A42)",
+    "heroBackground": "radial-gradient(ellipse at 50% 60%, #1A0800 0%, #0A0A0A 70%)",
+    "ambientGlow":    "radial-gradient(ellipse at 50% 30%, rgba(255,92,26,0.09) 0%, transparent 60%)"
+  },
+
+  "cardGlowHover": {
+    "description": "All cards use .card-glow CSS class — on hover: border shifts to rgba(255,92,26,0.25), card lifts translateY(-3px), and a radial orange glow fades in from the bottom center via ::after pseudo-element",
+    "hoverBorderColor": "rgba(255,92,26,0.25)",
+    "hoverTranslateY": "-3px",
+    "glowGradient": "radial-gradient(ellipse at 50% 100%, rgba(255,92,26,0.12) 0%, transparent 60%)",
+    "transitionDuration": "0.4s",
+    "appliedTo": ["GlassCard", "PricingCard", "TestimonialCard", "FAQItem", "HowItWorks steps", "PricingSection comparison block"]
+  },
+
+  "animations": {
+    "easing":       "[0.16, 1, 0.3, 1]  (custom spring-like ease)",
+    "fadeUp":       "opacity 0 → 1, y 24px → 0, duration 0.5s",
+    "stagger":      "0.08s between children",
+    "tabSwitch":    "opacity + y ±8px, duration 0.35s",
+    "glowPulse":    "scale 1 → 1.08, opacity 0.6 → 1, duration 6s loop",
+    "cardHover":    "y 0 → -4px on hover",
+    "navFadeDown":  "opacity + y -12px → 0, duration 0.8s"
+  }
+}
