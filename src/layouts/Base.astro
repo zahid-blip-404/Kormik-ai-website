@@ -14,7 +14,7 @@ interface Props {
   sources?: 'none' | 'lfs-findex' | 'lfs-wri-findex';
 }
 const { lang, page, path, title, description, sources = 'none' } = Astro.props;
-const site = Astro.site ?? new URL('https://kormik.com.bd');
+const site = Astro.site ?? new URL('https://www.kormik.com.bd');
 const canonical = new URL(localize(path, lang), site).href;
 const enUrl = new URL(path, site).href;
 const bnUrl = new URL(localize(path, 'bn'), site).href;

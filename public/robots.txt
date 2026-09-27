@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://kormik.com.bd/sitemap-index.xml
+Sitemap: https://www.kormik.com.bd/sitemap-index.xml

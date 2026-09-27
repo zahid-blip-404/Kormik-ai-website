@@ -4,7 +4,7 @@ import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://kormik.com.bd',
+  site: 'https://www.kormik.com.bd',
   // Pages are static; only /api/* runs on the server (Vercel functions).
   output: 'static',
   adapter: vercel(),
