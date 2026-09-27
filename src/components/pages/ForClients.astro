@@ -1,0 +1,212 @@
+---
+// Generated from the Claude Design export by design/tools/gen.py (for-clients). Edit the strings in
+// design/tools/strings/for-clients.json and re-run the generator rather than editing this file by hand.
+import { makeL, localize, type Lang } from '../../lib/i18n';
+import EarlyAccessForm from '../EarlyAccessForm.astro';
+import TradeIcon from '../TradeIcon.astro';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = makeL(lang);
+const href = (p: string) => localize(p, lang);
+---
+<main data-page="for-clients"><section data-screen-label="Hero" data-theme="light" style="background: var(--paper); padding-block: 64px;">
+<div class="k-container">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px 56px; align-items: center;">
+<div style="display: flex; flex-direction: column; gap: 20px; min-width: 0px;">
+<p class="label" style="margin: 0px; color: var(--ink-muted);">{L("For clients · Pre-launch preview", "ক্লায়েন্টদের জন্য · চালুর আগের প্রিভিউ")}</p>
+<h1 style='margin: 0px; font: 700 clamp(34px, 3.6vw, 52px) / 1.08 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1.2px; color: var(--indigo);'>{L("Need a crew?", "দল দরকার?")} <span style="color: var(--orange-ink);">{L("Hire people you can trust.", "বিশ্বস্ত মানুষ নিন।")}</span></h1>
+<p class="body-lg" style="margin: 0px; color: var(--ink); max-width: 48ch;">{L("The worker gets a record. The client gets a crew they can trust. From a leaking bathroom to a public road.", "কর্মী পান একটি রেকর্ড। ক্লায়েন্ট পান ভরসা করার মতো একটি দল। চুইয়ে পড়া বাথরুম থেকে সরকারি রাস্তা পর্যন্ত।")}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 4px;">
+<a class="k-btn k-btn--primary k-btn--lg" href="#early-access">{L("I need a crew", "আমার দল দরকার")}<span aria-hidden="true" class="k-btn__arrow">→</span></a>
+<a class="k-btn k-btn--secondary k-btn--lg" href="#public-works">{L("Public works", "সরকারি কাজ")}</a>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: minmax(0px, 1.35fr) minmax(0px, 1fr); grid-template-rows: 210px 210px; gap: 12px; min-width: 0px;">
+<div style="grid-row: 1 / 3; border-radius: 4px; overflow: hidden; background: var(--slot);"><img alt={L("A crew in hard hats and high-visibility vests at work on a construction site", "নির্মাণ সাইটে হেলমেট ও উজ্জ্বল জ্যাকেট পরা একটি দল কাজ করছে")} src="/images/pexels-4956918-w900.webp" style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;"/></div>
+<div style="border-radius: 4px; overflow: hidden; background: var(--slot);"><img alt={L("An electrician working on a building's power lines from a ladder", "মই থেকে একটি ভবনের বিদ্যুৎ লাইনে কাজ করছেন একজন ইলেকট্রিশিয়ান")} src="/images/pexels-14934023-w900.webp" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"/></div>
+<div style="border-radius: 4px; overflow: hidden; background: var(--slot);"><img alt={L("A worker in a trench at a construction site", "নির্মাণ সাইটে খাদের ভেতরে একজন কর্মী")} src="/images/pexels-15099463-w900.webp" style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;"/></div>
+</div>
+</div>
+</div></section><section data-screen-label="Who can hire" data-theme="light" style="background: rgb(255, 255, 255); padding-block: 72px;">
+<div class="k-container">
+<h2 style='margin: 0px 0px 36px; font: 700 clamp(30px, 3vw, 42px) / 1.1 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1px; color: var(--indigo); text-align: center;'>{L("Who can hire through Kormik", "কর্মীকের মাধ্যমে কারা লোক নিতে পারবেন")}</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px 32px;">
+<div style="border-top: 2px solid var(--indigo); padding-top: 18px; display: flex; flex-direction: column; gap: 8px;"><h3 class="heading-4" style="margin: 0px; color: var(--indigo); font-size: 22px;">{L("Homes", "বাড়ি")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("A repair, a repaint, a new bathroom.", "একটি মেরামত, নতুন রং, নতুন বাথরুম।")}</p></div>
+<div style="border-top: 2px solid var(--indigo); padding-top: 18px; display: flex; flex-direction: column; gap: 8px;"><h3 class="heading-4" style="margin: 0px; color: var(--indigo); font-size: 22px;">{L("Shops and businesses", "দোকান ও ব্যবসা")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("Fit-outs, upkeep and loading, done by a known crew.", "সাজসজ্জা, রক্ষণাবেক্ষণ আর মালামাল তোলা-নামানো, চেনা দলের হাতে।")}</p></div>
+<div style="border-top: 2px solid var(--indigo); padding-top: 18px; display: flex; flex-direction: column; gap: 8px;"><h3 class="heading-4" style="margin: 0px; color: var(--indigo); font-size: 22px;">{L("Contractors and developers", "ঠিকাদার ও ডেভেলপার")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("Skilled crews for every stage of a build.", "নির্মাণের প্রতিটি ধাপের জন্য দক্ষ দল।")}</p></div>
+<div style="border-top: 2px solid var(--orange); padding-top: 18px; display: flex; flex-direction: column; gap: 8px;"><h3 class="heading-4" style="margin: 0px; color: var(--indigo); font-size: 22px;">{L("Government and public works", "সরকারি ও গণপূর্ত কাজ")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("Crews for work that runs on tenders, notices and bidding.", "টেন্ডার, নোটিশ ও দরপত্রের কাজের জন্য দল।")}</p></div>
+</div>
+</div></section><section data-screen-label="Trades" data-theme="light" style="background: var(--paper); padding-block: 72px;">
+<div class="k-container">
+<h2 style='margin: 0px 0px 8px; font: 700 clamp(30px, 3vw, 42px) / 1.1 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1px; color: var(--indigo); text-align: center;'>{L("From a leaking bathroom to a public road.", "চুইয়ে পড়া বাথরুম থেকে সরকারি রাস্তা পর্যন্ত।")}</h2>
+<p class="body-lg" style="margin: 0px 0px 32px; color: var(--ink-muted); text-align: center;">{L("The trades Kormik crews will cover.", "কর্মীকের দলগুলো যেসব কাজ করবে।")}</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px;">
+<div style="background: rgb(255, 255, 255); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; gap: 14px; align-items: center; color: var(--indigo); min-height: 64px; box-sizing: border-box;">
+<TradeIcon name="trowel" size={28} />
+<div style="min-width: 0px;"><p class="body" style="margin: 0px; font-weight: 700; color: var(--indigo);"><span class="sc-interp">{L("Masonry", "রাজমিস্ত্রি")}</span></p><p lang="bn" style='margin: 0px; font: 500 15px / 1.5 "Anek Bangla", sans-serif; color: var(--orange-ink);'><span class="sc-interp">রাজমিস্ত্রি</span></p></div>
+</div>
+<div style="background: rgb(255, 255, 255); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; gap: 14px; align-items: center; color: var(--indigo); min-height: 64px; box-sizing: border-box;">
+<TradeIcon name="snips" size={28} />
+<div style="min-width: 0px;"><p class="body" style="margin: 0px; font-weight: 700; color: var(--indigo);"><span class="sc-interp">{L("Rod binding", "রড বাঁধাই")}</span></p><p lang="bn" style='margin: 0px; font: 500 15px / 1.5 "Anek Bangla", sans-serif; color: var(--orange-ink);'><span class="sc-interp">রড বাঁধাই</span></p></div>
+</div>
+<div style="background: rgb(255, 255, 255); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; gap: 14px; align-items: center; color: var(--indigo); min-height: 64px; box-sizing: border-box;">
+<TradeIcon name="roller" size={28} />
+<div style="min-width: 0px;"><p class="body" style="margin: 0px; font-weight: 700; color: var(--indigo);"><span class="sc-interp">{L("Painting", "রং করা")}</span></p><p lang="bn" style='margin: 0px; font: 500 15px / 1.5 "Anek Bangla", sans-serif; color: var(--orange-ink);'><span class="sc-interp">রং করা</span></p></div>
+</div>
+<div style="background: rgb(255, 255, 255); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; gap: 14px; align-items: center; color: var(--indigo); min-height: 64px; box-sizing: border-box;">
+<TradeIcon name="bolt" size={28} />
+<div style="min-width: 0px;"><p class="body" style="margin: 0px; font-weight: 700; color: var(--indigo);"><span class="sc-interp">{L("Electrical", "ইলেকট্রিক")}</span></p><p lang="bn" style='margin: 0px; font: 500 15px / 1.5 "Anek Bangla", sans-serif; color: var(--orange-ink);'><span class="sc-interp">ইলেকট্রিক</span></p></div>
+</div>
+<div style="background: rgb(255, 255, 255); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; gap: 14px; align-items: center; color: var(--indigo); min-height: 64px; box-sizing: border-box;">
+<TradeIcon name="plunger" size={28} />
+<div style="min-width: 0px;"><p class="body" style="margin: 0px; font-weight: 700; color: var(--indigo);"><span class="sc-interp">{L("Plumbing", "প্লাম্বিং")}</span></p><p lang="bn" style='margin: 0px; font: 500 15px / 1.5 "Anek Bangla", sans-serif; color: var(--orange-ink);'><span class="sc-interp">প্লাম্বিং</span></p></div>
+</div>
+<div style="background: rgb(255, 255, 255); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; gap: 14px; align-items: center; color: var(--indigo); min-height: 64px; box-sizing: border-box;">
+<TradeIcon name="tile" size={28} />
+<div style="min-width: 0px;"><p class="body" style="margin: 0px; font-weight: 700; color: var(--indigo);"><span class="sc-interp">{L("Tiles and flooring", "টাইলস ও মেঝে")}</span></p><p lang="bn" style='margin: 0px; font: 500 15px / 1.5 "Anek Bangla", sans-serif; color: var(--orange-ink);'><span class="sc-interp">টাইলস ও মেঝে</span></p></div>
+</div>
+<div style="background: rgb(255, 255, 255); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; gap: 14px; align-items: center; color: var(--indigo); min-height: 64px; box-sizing: border-box;">
+<TradeIcon name="saw" size={28} />
+<div style="min-width: 0px;"><p class="body" style="margin: 0px; font-weight: 700; color: var(--indigo);"><span class="sc-interp">{L("Carpentry", "কাঠমিস্ত্রি")}</span></p><p lang="bn" style='margin: 0px; font: 500 15px / 1.5 "Anek Bangla", sans-serif; color: var(--orange-ink);'><span class="sc-interp">কাঠমিস্ত্রি</span></p></div>
+</div>
+<div style="background: rgb(255, 255, 255); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; gap: 14px; align-items: center; color: var(--indigo); min-height: 64px; box-sizing: border-box;">
+<TradeIcon name="shovel" size={28} />
+<div style="min-width: 0px;"><p class="body" style="margin: 0px; font-weight: 700; color: var(--indigo);"><span class="sc-interp">{L("Helpers and site labour", "সহকারী ও জোগালি")}</span></p><p lang="bn" style='margin: 0px; font: 500 15px / 1.5 "Anek Bangla", sans-serif; color: var(--orange-ink);'><span class="sc-interp">সহকারী ও জোগালি</span></p></div>
+</div>
+<div style="background: rgb(255, 255, 255); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; gap: 14px; align-items: center; color: var(--indigo); min-height: 64px; box-sizing: border-box;">
+<TradeIcon name="broom" size={28} />
+<div style="min-width: 0px;"><p class="body" style="margin: 0px; font-weight: 700; color: var(--indigo);"><span class="sc-interp">{L("Cleaning", "পরিচ্ছন্নতা")}</span></p><p lang="bn" style='margin: 0px; font: 500 15px / 1.5 "Anek Bangla", sans-serif; color: var(--orange-ink);'><span class="sc-interp">পরিচ্ছন্নতা</span></p></div>
+</div>
+<div style="background: rgb(255, 255, 255); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; gap: 14px; align-items: center; color: var(--indigo); min-height: 64px; box-sizing: border-box;">
+<TradeIcon name="box" size={28} />
+<div style="min-width: 0px;"><p class="body" style="margin: 0px; font-weight: 700; color: var(--indigo);"><span class="sc-interp">{L("Loading and shifting", "মালামাল বহন")}</span></p><p lang="bn" style='margin: 0px; font: 500 15px / 1.5 "Anek Bangla", sans-serif; color: var(--orange-ink);'><span class="sc-interp">মালামাল বহন</span></p></div>
+</div>
+<div style="background: rgb(255, 255, 255); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; gap: 14px; align-items: center; color: var(--indigo); min-height: 64px; box-sizing: border-box;">
+<TradeIcon name="toolbox" size={28} />
+<div style="min-width: 0px;"><p class="body" style="margin: 0px; font-weight: 700; color: var(--indigo);"><span class="sc-interp">{L("Home repairs", "ঘরের মেরামত")}</span></p><p lang="bn" style='margin: 0px; font: 500 15px / 1.5 "Anek Bangla", sans-serif; color: var(--orange-ink);'><span class="sc-interp">ঘরের মেরামত</span></p></div>
+</div>
+<div style="background: rgb(255, 255, 255); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; gap: 14px; align-items: center; color: var(--indigo); min-height: 64px; box-sizing: border-box;">
+<TradeIcon name="pickaxe" size={28} />
+<div style="min-width: 0px;"><p class="body" style="margin: 0px; font-weight: 700; color: var(--indigo);"><span class="sc-interp">{L("Earthworks and roads", "মাটি ও রাস্তার কাজ")}</span></p><p lang="bn" style='margin: 0px; font: 500 15px / 1.5 "Anek Bangla", sans-serif; color: var(--orange-ink);'><span class="sc-interp">মাটি ও রাস্তার কাজ</span></p></div>
+</div>
+</div>
+<p class="small" style="margin: 16px 0px 0px; color: var(--ink-muted); text-align: center;">{L("Bangla trade names to be checked by a native speaker.", "কাজের বাংলা নামগুলো একজন মাতৃভাষী যাচাই করবেন।")}</p>
+</div></section><section data-screen-label="What you can count on" data-theme="light" style="background: rgb(255, 255, 255); padding-block: 72px;">
+<div class="k-container">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px 64px; align-items: center;">
+<div style="display: flex; flex-direction: column; gap: 24px;">
+<h2 style='margin: 0px; font: 700 clamp(30px, 3vw, 42px) / 1.1 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1px; color: var(--indigo);'>{L("What you can count on", "যার ওপর ভরসা রাখতে পারেন")}</h2>
+<div style="display: flex; flex-direction: column; gap: 20px;">
+<div style="border-top: 1px solid var(--line); padding-top: 16px; display: grid; grid-template-columns: 40px 1fr; gap: 16px;"><span style="font: 700 24px / 1 Ubuntu, sans-serif; color: var(--orange-ink);">{L("01", "০১")}</span><div><h3 class="heading-4" style="margin: 0px 0px 6px; color: var(--indigo); font-size: 20px;">{L("A Team Leader who answers for the crew", "দলের দায় নেন একজন টিম লিডার")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("One person you can call, who knows every worker on your job.", "একজনকে ফোন করলেই হবে, যিনি আপনার কাজের প্রত্যেক কর্মীকে চেনেন।")}</p></div></div>
+<div style="border-top: 1px solid var(--line); padding-top: 16px; display: grid; grid-template-columns: 40px 1fr; gap: 16px;"><span style="font: 700 24px / 1 Ubuntu, sans-serif; color: var(--orange-ink);">{L("02", "০২")}</span><div><h3 class="heading-4" style="margin: 0px 0px 6px; color: var(--indigo); font-size: 20px;">{L("The right skills, with a record of past work", "সঠিক দক্ষতা, আগের কাজের রেকর্ডসহ")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("Each worker comes with a record of the work they have done before.", "প্রত্যেক কর্মীর সঙ্গে থাকে তার আগের কাজের রেকর্ড।")}</p></div></div>
+<div style="border-top: 1px solid var(--line); padding-top: 16px; display: grid; grid-template-columns: 40px 1fr; gap: 16px;"><span style="font: 700 24px / 1 Ubuntu, sans-serif; color: var(--orange-ink);">{L("03", "০৩")}</span><div><h3 class="heading-4" style="margin: 0px 0px 6px; color: var(--indigo); font-size: 20px;">{L("Every day of work on record", "প্রতিটি কাজের দিন রেকর্ডে")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("A clear record of who worked on your job, ready when a tender or contractor asks for it.", "কারা আপনার কাজ করেছেন তার স্পষ্ট রেকর্ড, টেন্ডার বা ঠিকাদার চাইলেই হাতে।")}</p></div></div>
+</div>
+</div>
+<div style="display: flex; justify-content: center; min-width: 0px;">
+<div style='display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 28px; font-family: "Helvetica Neue", Helvetica, Arimo, Arial, sans-serif;'>
+<div style="display: flex; flex-direction: column; gap: 10px; flex: 1 1 280px; max-width: 360px; min-width: 0px;">
+<article aria-label={L("Work record card (concept)", "কাজের রেকর্ড কার্ড (ধারণা)")} style="position: relative; overflow: hidden; box-sizing: border-box; width: 100%; background: rgb(13, 14, 96); color: rgb(255, 255, 255); border-radius: 16px; box-shadow: rgba(13, 14, 96, 0.2) 0px 24px 60px; padding: 18px 20px 16px; display: flex; flex-direction: column; gap: 14px;">
+<div aria-hidden="true" style="position: absolute; right: -40px; top: -24px; width: 200px; aspect-ratio: 502 / 689; background: rgb(27, 29, 122); mask-image: url(/images/fingerprint.webp); mask-size: contain; mask-repeat: no-repeat;"></div>
+<div aria-hidden="true" style="position: absolute; inset: 6px; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 11px; pointer-events: none;"></div>
+<div style="position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+<div style="display: flex; align-items: center; gap: 10px;"><img alt={L("Kormik", "কর্মীক")} src="/brand/kormik-lockup-white.png" style="height: 20px; width: auto; display: block;"/><span lang="bn" style='font: 700 16px / 1 "Anek Bangla", sans-serif; color: rgb(255, 109, 2);'>কর্মীক</span></div>
+<span style='font: 700 11px / 1 "Helvetica Neue", Helvetica, Arimo, Arial, sans-serif; color: rgb(13, 14, 96); background: rgb(255, 109, 2); border-radius: 999px; padding: 7px 12px; white-space: nowrap;'>{L("Preview · concept", "প্রিভিউ · ধারণা")}</span>
+</div>
+<div style="position: relative; display: grid; grid-template-columns: 96px minmax(0px, 1fr); gap: 16px; align-items: start;">
+<div style="width: 96px; height: 116px; border-radius: 8px; overflow: hidden; background: rgb(27, 29, 122); border: 2px solid rgb(255, 255, 255); box-sizing: border-box;">
+<img alt="" src="/images/unsplash-1679679811837-w400h480.webp" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;"/>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; min-width: 0px;">
+<div>
+<p style='margin: 0px 0px 4px; font: 700 10px / 1 "Helvetica Neue", Helvetica, Arimo, Arial, sans-serif; letter-spacing: 1.6px; text-transform: uppercase; color: rgb(158, 161, 214);'>{L("Name", "নাম")}</p>
+<p style='margin: 0px; font: 700 19px / 1.15 Ubuntu, "Trebuchet MS", sans-serif; color: rgb(255, 255, 255); overflow-wrap: anywhere;'><span class="sc-interp">{L("Mohammad Karim", "মোহাম্মদ করিম")}</span></p>
+</div>
+<div style="display: flex; gap: 24px; flex-wrap: wrap;">
+<div>
+<p style='margin: 0px 0px 4px; font: 700 10px / 1 "Helvetica Neue", Helvetica, Arimo, Arial, sans-serif; letter-spacing: 1.6px; text-transform: uppercase; color: rgb(158, 161, 214);'>{L("Trade", "পেশা")}</p>
+<p style='margin: 0px; font: 700 16px / 1.2 Ubuntu, "Trebuchet MS", sans-serif; color: rgb(255, 255, 255);'><span class="sc-interp">{L("Mason", "রাজমিস্ত্রি")}</span></p>
+<p lang="bn" style='margin: 2px 0px 0px; font: 500 15px / 1.4 "Anek Bangla", sans-serif; color: rgb(255, 109, 2);'><span class="sc-interp">রাজমিস্ত্রি</span></p>
+</div>
+<div>
+<p style='margin: 0px 0px 4px; font: 700 10px / 1 "Helvetica Neue", Helvetica, Arimo, Arial, sans-serif; letter-spacing: 1.6px; text-transform: uppercase; color: rgb(158, 161, 214);'>{L("Area", "এলাকা")}</p>
+<p style='margin: 0px; font: 400 14px / 1.3 "Helvetica Neue", Helvetica, Arimo, Arial, sans-serif; color: rgb(196, 198, 234);'><span class="sc-interp">{L("Mirpur, Dhaka", "মিরপুর, ঢাকা")}</span></p>
+</div>
+</div>
+</div>
+</div>
+<div style="position: relative; margin-top: -6px; background: rgb(255, 255, 255); border-radius: 8px; padding: 12px 16px 8px; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+<div aria-hidden="true" style="width: 100%; height: 38px; background: repeating-linear-gradient(90deg, rgb(13, 14, 96) 0px, rgb(13, 14, 96) 2px, transparent 2px, transparent 4px, rgb(13, 14, 96) 4px, rgb(13, 14, 96) 5px, transparent 5px, transparent 8px, rgb(13, 14, 96) 8px, rgb(13, 14, 96) 11px, transparent 11px, transparent 13px, rgb(13, 14, 96) 13px, rgb(13, 14, 96) 14px, transparent 14px, transparent 17px, rgb(13, 14, 96) 17px, rgb(13, 14, 96) 19px, transparent 19px, transparent 20px, rgb(13, 14, 96) 20px, rgb(13, 14, 96) 21px, transparent 21px, transparent 24px);"></div>
+<span style="font: 700 11px / 1 ui-monospace, Menlo, monospace; letter-spacing: 4px; color: rgb(13, 14, 96);">{L("KORMIK · DHAKA", "কর্মীক · ঢাকা")}</span>
+</div>
+<p style='position: relative; margin: -4px 0px 0px; font: 700 13px / 1.2 "Helvetica Neue", Helvetica, Arimo, Arial, sans-serif; color: rgb(255, 109, 2); text-align: center; white-space: nowrap;'>{L("A Kormik record that is yours", "কর্মীকের একটি রেকর্ড, যা আপনার")}</p>
+</article>
+<p style='margin: 0px; font: 400 13px / 1.4 "Helvetica Neue", Helvetica, Arimo, Arial, sans-serif; color: rgb(75, 85, 99);'>{L("One record · two forms", "একটি রেকর্ড · দুটি রূপ")}</p>
+</div>
+<div style="flex: 0 0 auto; width: 172px; box-sizing: border-box; padding: 8px; background: rgb(8, 9, 63); border-radius: 30px; box-shadow: rgba(13, 14, 96, 0.2) 0px 24px 60px;">
+<div style="position: relative; overflow: hidden; background: rgb(13, 14, 96); border-radius: 24px; height: 344px; padding: 22px 16px 16px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 10px; color: rgb(255, 255, 255); text-align: center;">
+<div aria-hidden="true" style="position: absolute; right: -50px; top: 40px; width: 170px; aspect-ratio: 502 / 689; background: rgb(27, 29, 122); mask-image: url(/images/fingerprint.webp); mask-size: contain; mask-repeat: no-repeat;"></div>
+<div style="position: relative; width: 56px; height: 5px; border-radius: 999px; background: rgb(8, 9, 63); margin-top: -8px;"></div>
+<div style="position: relative; display: flex; align-items: center; gap: 6px; margin-top: 4px;"><img alt={L("Kormik", "কর্মীক")} src="/brand/kormik-lockup-white.png" style="height: 14px; width: auto; display: block;"/><span lang="bn" style='font: 700 11px / 1 "Anek Bangla", sans-serif; color: rgb(255, 109, 2);'>কর্মীক</span></div>
+<div style="position: relative; width: 88px; height: 104px; border-radius: 8px; overflow: hidden; background: rgb(27, 29, 122); margin-top: 6px; border: 2px solid rgb(255, 255, 255); box-sizing: border-box;">
+<img alt="" src="/images/unsplash-1679679811837-w400h480.webp" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;"/>
+</div>
+<div style="position: relative;">
+<p style='margin: 0px; font: 700 14px / 1.2 Ubuntu, "Trebuchet MS", sans-serif; color: rgb(255, 255, 255);'><span class="sc-interp">{L("Mohammad Karim", "মোহাম্মদ করিম")}</span></p>
+<p style='margin: 3px 0px 0px; font: 400 11px / 1.3 "Helvetica Neue", Helvetica, Arimo, Arial, sans-serif; color: rgb(196, 198, 234);'><span class="sc-interp">{L("Mason", "রাজমিস্ত্রি")}</span> · <span lang="bn" style='font-family: "Anek Bangla", sans-serif; color: rgb(255, 109, 2);'><span class="sc-interp">রাজমিস্ত্রি</span></span></p>
+</div>
+<div style="position: relative; display: flex; align-items: baseline; justify-content: center; gap: 6px; white-space: nowrap; margin-top: 2px;">
+<span style='font-style: normal; font-variant: tabular-nums; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-weight: 700; font-stretch: normal; font-size: 20px; line-height: 1; font-family: Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -0.5px; color: rgb(255, 255, 255);'><span class="sc-interp">{L("186", "১৮৬")}</span></span>
+<span style='font: 400 9px / 1.2 "Helvetica Neue", Helvetica, Arimo, Arial, sans-serif; color: rgb(196, 198, 234);'>{L("days of work recognised", "দিনের কাজ স্বীকৃত")}</span>
+</div>
+<div style="position: relative; margin-top: auto; width: 156px; background: rgb(255, 255, 255); border-radius: 6px; padding: 8px 10px 5px; display: flex; flex-direction: column; align-items: center; gap: 4px; box-sizing: border-box; height: 48px;">
+<div aria-hidden="true" style="width: 100%; height: 22px; background: repeating-linear-gradient(90deg, rgb(13, 14, 96) 0px, rgb(13, 14, 96) 1px, transparent 1px, transparent 3px, rgb(13, 14, 96) 3px, rgb(13, 14, 96) 5px, transparent 5px, transparent 6px, rgb(13, 14, 96) 6px, rgb(13, 14, 96) 7px, transparent 7px, transparent 9px, rgb(13, 14, 96) 9px, rgb(13, 14, 96) 11px, transparent 11px, transparent 12px);"></div>
+<span style="font: 700 7px / 1 ui-monospace, Menlo, monospace; letter-spacing: 2px; color: rgb(13, 14, 96);">{L("KORMIK · DHAKA", "কর্মীক · ঢাকা")}</span>
+</div><p style='position: relative; margin: 0px; font: 700 8px / 1.2 "Helvetica Neue", Helvetica, Arimo, Arial, sans-serif; color: rgb(255, 109, 2); white-space: nowrap;'>{L("A Kormik record that is yours", "কর্মীকের একটি রেকর্ড, যা আপনার")}</p>
+</div>
+</div></div>
+</div>
+</div>
+</div></section><section data-screen-label="How it will work" data-theme="light" style="background: var(--paper); padding-block: 72px;">
+<div class="k-container">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 36px; text-align: center;">
+<h2 style='margin: 0px; font: 700 clamp(30px, 3vw, 42px) / 1.1 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1px; color: var(--indigo);'>{L("How it will work", "যেভাবে কাজ করবে")}</h2>
+<span class="small" style="color: var(--indigo); border: 1.5px solid var(--indigo); border-radius: 999px; padding: 6px 12px;">{L("This may change as we test it", "পরীক্ষার সময় এটি বদলাতে পারে")}</span>
+</div>
+<ol style="list-style: none; margin: 0px; padding: 0px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px 32px;">
+<li style="display: flex; flex-direction: column; gap: 10px;"><div style="display: flex; align-items: center; gap: 10px;"><span style="width: 40px; height: 40px; border-radius: 999px; background: var(--indigo); color: rgb(255, 255, 255); display: grid; place-items: center; font: 700 16px / 1 Ubuntu, sans-serif; flex: 0 0 auto;">{L("1", "১")}</span><span style="flex: 1 1 0%; border-top: 2px solid var(--indigo);"></span></div><h3 class="heading-4" style="margin: 0px; color: var(--indigo); font-size: 22px;">{L("Tell us the work", "কাজটি জানান")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("What needs doing, and where.", "কী করতে হবে, আর কোথায়।")}</p></li>
+<li style="display: flex; flex-direction: column; gap: 10px;"><div style="display: flex; align-items: center; gap: 10px;"><span style="width: 40px; height: 40px; border-radius: 999px; background: var(--indigo); color: rgb(255, 255, 255); display: grid; place-items: center; font: 700 16px / 1 Ubuntu, sans-serif; flex: 0 0 auto;">{L("2", "২")}</span><span style="flex: 1 1 0%; border-top: 2px solid var(--indigo);"></span></div><h3 class="heading-4" style="margin: 0px; color: var(--indigo); font-size: 22px;">{L("A Team Leader brings the crew", "টিম লিডার দল নিয়ে আসেন")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("The right people for the job, led by someone who answers for them.", "কাজের জন্য সঠিক মানুষ, যার নেতৃত্বে থাকেন তাদের দায় নেওয়া একজন।")}</p></li>
+<li style="display: flex; flex-direction: column; gap: 10px;"><div style="display: flex; align-items: center; gap: 10px;"><span style="width: 40px; height: 40px; border-radius: 999px; background: var(--orange); color: var(--indigo); display: grid; place-items: center; font: 700 16px / 1 Ubuntu, sans-serif; flex: 0 0 auto;">{L("3", "৩")}</span></div><h3 class="heading-4" style="margin: 0px; color: var(--indigo); font-size: 22px;">{L("The work stays on record", "কাজ রেকর্ডে থাকে")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("Every day, for the worker and for you.", "প্রতিটি দিন, কর্মীর জন্য এবং আপনার জন্য।")}</p></li>
+</ol>
+</div></section><section data-screen-label="Public works" data-theme="indigo" id="public-works" style="background: var(--indigo); color: rgb(255, 255, 255); padding-block: 72px;">
+<div class="k-container">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px 64px; align-items: center;">
+<div style="aspect-ratio: 16 / 11; border-radius: 4px; overflow: hidden; background: var(--indigo-2);"><img alt={L("A large public construction site", "একটি বড় সরকারি নির্মাণ সাইট")} src="/images/unsplash-1504307651254-w1000.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;"/></div>
+<div style="display: flex; flex-direction: column; gap: 18px;">
+<p class="label" style="margin: 0px; color: var(--lavender);">{L("Government and public works", "সরকারি ও গণপূর্ত কাজ")}</p>
+<h2 style='margin: 0px; font: 700 clamp(30px, 3vw, 42px) / 1.1 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1px; color: rgb(255, 255, 255);'>{L("Organised, accountable crews for public work.", "সরকারি কাজের জন্য সংগঠিত, জবাবদিহিমূলক দল।")}</h2>
+<p class="body-lg" style="margin: 0px; color: var(--lavender); max-width: 48ch;">{L("A clear record of every day on site, from the first notice to the final handover.", "প্রথম নোটিশ থেকে হস্তান্তর পর্যন্ত, সাইটের প্রতিটি দিনের স্পষ্ট রেকর্ড।")}</p>
+<div><a class="k-btn k-btn--primary k-btn--md" href={href("/join#partner")}>{L("Talk to us about public works", "সরকারি কাজ নিয়ে কথা বলুন")}<span aria-hidden="true" class="k-btn__arrow">→</span></a></div>
+</div>
+</div>
+</div></section><section data-screen-label="FAQ" data-theme="light" style="background: rgb(255, 255, 255); padding-block: 72px;">
+<div class="k-container" style="max-width: 880px;">
+<h2 style='margin: 0px 0px 28px; font: 700 clamp(30px, 3vw, 42px) / 1.1 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1px; color: var(--indigo); text-align: center;'>{L("Questions from clients", "ক্লায়েন্টদের প্রশ্ন")}</h2>
+<details class="k-faq" open=""><summary class="k-faq__q"><span class="k-faq__n">{L("01", "০১")}</span><span>{L("Can I hire through Kormik today?", "আজই কি কর্মীকের মাধ্যমে লোক নিতে পারব?")}</span></summary><div class="k-faq__a">{L("Not yet. Kormik is in pre-launch. Leave your number and we will send one text when we open near you.", "এখনো না। কর্মীক এখন চালুর আগের পর্যায়ে। নম্বর দিন, আপনার এলাকায় চালু হলে একটি এসএমএস পাঠাব।")}</div></details>
+<details class="k-faq"><summary class="k-faq__q"><span class="k-faq__n">{L("02", "০২")}</span><span>{L("Where will it start?", "কোথায় শুরু হবে?")}</span></summary><div class="k-faq__a">{L("In Dhaka first.", "প্রথমে ঢাকায়।")}</div></details>
+<details class="k-faq"><summary class="k-faq__q"><span class="k-faq__n">{L("03", "০৩")}</span><span>{L("What size of job can I bring?", "কত বড় কাজ আনতে পারব?")}</span></summary><div class="k-faq__a">{L("Any size, from a single repair in a home to a crew for a public project.", "যেকোনো আকারের, ঘরের একটি মেরামত থেকে সরকারি প্রকল্পের দল পর্যন্ত।")}</div></details>
+</div></section><section data-screen-label="Early access" data-theme="light" id="early-access" style="background: var(--paper); padding-block: 72px;">
+<div class="k-container">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px 64px; align-items: center;">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<h2 style='margin: 0px; font: 700 clamp(30px, 3vw, 42px) / 1.1 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1px; color: var(--indigo);'>{L("Be first to hire when Kormik opens.", "কর্মীক চালু হলে সবার আগে লোক নিন।")}</h2>
+<p class="body-lg" style="margin: 0px; color: var(--ink-muted);">{L("Not yet a live service. Opening in Dhaka first.", "এখনো চালু সেবা নয়। প্রথমে ঢাকায় চালু হবে।")}</p>
+<a class="k-btn k-btn--link k-btn--md" href={href("/join")}>{L("All the ways to join", "যোগ দেওয়ার সব পথ")}<span aria-hidden="true" class="k-btn__arrow">→</span></a>
+</div>
+<div style="background: rgb(255, 255, 255); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-raised);">
+<EarlyAccessForm lang={lang} id="ea-for-clients-0" defaultRole={2} source="for-clients" />
+</div>
+</div>
+</div></section></main>
+<style is:global>
+body { margin: 0; background: transparent; } a { color: #0d0e60; } a:hover { color: #0d0e60; }
+</style>

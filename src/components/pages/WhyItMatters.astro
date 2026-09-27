@@ -1,0 +1,137 @@
+---
+// Generated from the Claude Design export by design/tools/gen.py (why-it-matters). Edit the strings in
+// design/tools/strings/why-it-matters.json and re-run the generator rather than editing this file by hand.
+import { makeL, localize, type Lang } from '../../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = makeL(lang);
+const href = (p: string) => localize(p, lang);
+---
+<main data-page="why-it-matters"><section data-screen-label="Hero" data-theme="indigo" style="background: var(--indigo); color: rgb(255, 255, 255); padding-block: 64px; overflow: hidden;">
+<div class="k-container">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px 56px; align-items: center;">
+<div style="display: flex; flex-direction: column; gap: 20px; min-width: 0px;">
+<p class="label" style="margin: 0px; color: var(--lavender);">{L("Why it matters", "কেন জরুরি")}</p>
+<h1 style='margin: 0px; font: 700 clamp(34px, 3.6vw, 52px) / 1.08 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1.2px; color: rgb(255, 255, 255);'>{L("Every morning, a lottery.", "প্রতিদিন সকালে একটা লটারি।")} <span style="color: var(--orange);">{L("Every workday, unrecorded.", "প্রতিটি কাজের দিন, রেকর্ডহীন।")}</span></h1>
+<p class="body-lg" style="margin: 0px; color: var(--lavender); max-width: 50ch;">{L("A worker in Bangladesh faces two injustices. The first is getting the work. The second is proving they did it.", "বাংলাদেশে একজন কর্মী দুটি অবিচারের মুখোমুখি হন। প্রথমটি কাজ পাওয়া। দ্বিতীয়টি প্রমাণ করা যে তিনি কাজটি করেছেন।")}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 4px;">
+<a class="k-btn k-btn--primary k-btn--lg" href={href("/join")}>{L("Join early access", "আগাম নিবন্ধন করুন")}<span aria-hidden="true" class="k-btn__arrow">→</span></a>
+<a class="k-btn k-btn--secondary k-btn--lg" href="#chain">{L("How work reaches a worker", "কাজ কীভাবে কর্মীর কাছে পৌঁছায়")}</a>
+</div>
+</div>
+<div style="aspect-ratio: 4 / 3; border-radius: 4px; overflow: hidden; background: var(--indigo-2); min-width: 0px;">
+<img alt={L("Workers behind a bamboo barrier, waiting to be picked for the day", "দিনের কাজে ডাক পাওয়ার অপেক্ষায় বাঁশের বেড়ার পেছনে কর্মীরা")} src="/images/work-crowd.webp" style="width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block;"/>
+</div>
+</div>
+</div></section><section data-screen-label="Scale" data-theme="light" style="background: var(--paper); padding-block: 80px;">
+<div class="k-container" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px;">
+<p style='margin: 0px; font-style: normal; font-variant: tabular-nums; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-weight: 700; font-stretch: normal; font-size: clamp(120px, 16vw, 220px); line-height: 0.9; font-family: Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -8px; color: var(--indigo);'>{L("84", "৮৪")}<span style="color: var(--orange);">%</span></p>
+<p class="body-lg" style="margin: 0px; color: var(--ink);">{L("of employed people in Bangladesh work informally. About 5.8 crore people.", "বাংলাদেশের কর্মরত মানুষ অনানুষ্ঠানিক খাতে কাজ করেন। প্রায় ৫.৮ কোটি মানুষ।")}</p>
+<p class="small" style="margin: 0px; color: var(--ink-muted);">{L("BBS Labour Force Survey 2024", "বিবিএস শ্রমশক্তি জরিপ ২০২৪")}</p>
+<h2 style='margin: 24px 0px 0px; font: 700 clamp(28px, 2.8vw, 40px) / 1.12 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1px; color: var(--indigo);'>{L("This is not the edge of Bangladesh's economy. It is most of it.", "এটি বাংলাদেশের অর্থনীতির প্রান্ত নয়। এটিই অর্থনীতির বেশির ভাগ।")}</h2>
+</div></section><section data-screen-label="Two injustices" data-theme="light" style="background: rgb(255, 255, 255); padding-block: 80px;">
+<div class="k-container">
+<h2 style='margin: 0px 0px 40px; font: 700 clamp(30px, 3vw, 42px) / 1.1 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1px; color: var(--indigo); text-align: center;'>{L("Two injustices, every day.", "প্রতিদিন দুটি অবিচার।")}</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px 40px; align-items: stretch;">
+<div style="display: flex; flex-direction: column; gap: 14px; border-top: 2px solid var(--indigo); padding-top: 20px;">
+<p class="label" style="margin: 0px; color: var(--orange-ink);">{L("One", "এক")}</p>
+<h3 class="heading-3" style="margin: 0px; color: var(--indigo);">{L("Getting the work", "কাজ পাওয়া")}</h3>
+<p class="body" style="margin: 0px; color: var(--ink-muted);">{L("At dawn, at the roadside, workers wait to be picked. Some are chosen. The rest go home with nothing, and try again tomorrow.", "ভোরে, রাস্তার ধারে, কর্মীরা ডাক পাওয়ার অপেক্ষায় থাকেন। কেউ কেউ কাজ পান। বাকিরা খালি হাতে বাড়ি ফেরেন, আর কাল আবার চেষ্টা করেন।")}</p>
+</div>
+<div style="aspect-ratio: 3 / 4; border-radius: 4px; overflow: hidden; background: var(--slot); max-height: 420px; justify-self: center; width: 100%;">
+<img alt={L("A worker walking to work with a spade over his shoulder", "কাঁধে কোদাল নিয়ে কাজে যাচ্ছেন একজন কর্মী")} src="/images/work-portrait.webp" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;"/>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; border-top: 2px solid var(--orange); padding-top: 20px;">
+<p class="label" style="margin: 0px; color: var(--orange-ink);">{L("Two", "দুই")}</p>
+<h3 class="heading-3" style="margin: 0px; color: var(--indigo);">{L("Proving they did it", "কাজ করার প্রমাণ")}</h3>
+<p class="body" style="margin: 0px; color: var(--ink-muted);">{L("Cash in hand. No slip, no name, no date. The money changes hands. The proof never does.", "হাতে নগদ টাকা। কোনো রসিদ নেই, নাম নেই, তারিখ নেই। টাকা হাত বদলায়, প্রমাণ থাকে না।")}</p>
+</div>
+</div>
+</div></section><section data-screen-label="Without a record" data-theme="indigo" style="background: var(--indigo-deep); color: rgb(255, 255, 255); padding-block: 80px;">
+<div class="k-container">
+<h2 style='margin: 0px 0px 40px; font: 700 clamp(30px, 3vw, 42px) / 1.1 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1px; color: rgb(255, 255, 255); text-align: center;'>{L("Without a record, a worker can't…", "রেকর্ড না থাকলে একজন কর্মী পারেন না…")}</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px 32px;">
+<div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 18px; display: flex; flex-direction: column; gap: 10px;"><h3 class="heading-4" style="margin: 0px; color: rgb(255, 255, 255); font-size: 24px;">{L("contest a wage", "মজুরি নিয়ে আপত্তি জানাতে")}</h3><p class="body" style="margin: 0px; color: var(--lavender);">{L("When the pay comes short, there is nothing to point to.", "মজুরি কম এলে দেখানোর মতো কিছুই থাকে না।")}</p></div>
+<div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 18px; display: flex; flex-direction: column; gap: 10px;"><h3 class="heading-4" style="margin: 0px; color: rgb(255, 255, 255); font-size: 24px;">{L("show their experience", "অভিজ্ঞতা দেখাতে")}</h3><p class="body" style="margin: 0px; color: var(--lavender);">{L("Ten years of work look the same as none.", "দশ বছরের কাজ আর কোনো কাজ না করা, দেখতে একই রকম।")}</p></div>
+<div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 18px; display: flex; flex-direction: column; gap: 10px;"><h3 class="heading-4" style="margin: 0px; color: rgb(255, 255, 255); font-size: 24px;">{L("prove they were at work when they got hurt", "আহত হওয়ার দিন যে কাজে ছিলেন, তা প্রমাণ করতে")}</h3><p class="body" style="margin: 0px; color: var(--lavender);">{L("9.6 lakh people reported a work injury or illness in one year.", "এক বছরে ৯.৬ লাখ মানুষ কাজের কারণে আঘাত বা অসুস্থতার কথা জানিয়েছেন।")}</p><p class="small" style="margin: 0px; color: var(--lavender-dim);">{L("BBS Labour Force Survey 2024", "বিবিএস শ্রমশক্তি জরিপ ২০২৪")}</p></div>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 48px; flex-wrap: wrap; text-align: center;">
+<div aria-hidden="true" style="width: 40px; aspect-ratio: 502 / 689; background: var(--orange); mask-image: url(/images/fingerprint.webp); mask-size: contain; mask-repeat: no-repeat;"></div>
+<p style='margin: 0px; font: 500 clamp(20px, 1.8vw, 26px) / 1.3 Ubuntu, "Trebuchet MS", sans-serif; color: rgb(255, 255, 255);'>{L("And the country can't count, reach or protect them.", "আর দেশও তাদের গুনতে, তাদের কাছে পৌঁছাতে বা তাদের সুরক্ষা দিতে পারে না।")}</p>
+</div>
+</div></section><section data-screen-label="How work reaches a worker" data-theme="light" id="chain" style="background: var(--paper); padding-block: 80px;">
+<div class="k-container">
+<h2 style='margin: 0px 0px 12px; font: 700 clamp(30px, 3vw, 42px) / 1.1 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1px; color: var(--indigo); text-align: center;'>{L("How work reaches a worker today", "আজ কাজ কীভাবে একজন কর্মীর কাছে পৌঁছায়")}</h2>
+<p class="body-lg" style="margin: 0px 0px 40px; color: var(--ink-muted); text-align: center;">{L("Five links, from the first order to the day's work. Only the last one is left with nothing.", "প্রথম কার্যাদেশ থেকে দিনের কাজ পর্যন্ত পাঁচটি ধাপ। শুধু শেষ ধাপের মানুষটিই খালি হাতে থাকেন।")}</p>
+<ol style="list-style: none; margin: 0px; padding: 0px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px 16px;">
+<li style="display: flex; flex-direction: column; gap: 10px;"><div style="display: flex; align-items: center; gap: 8px;"><span style="width: 36px; height: 36px; border-radius: 999px; border: 2px solid var(--indigo); display: grid; place-items: center; font: 700 15px / 1 Ubuntu, sans-serif; color: var(--indigo); flex: 0 0 auto;">{L("1", "১")}</span><span style="flex: 1 1 0%; border-top: 2px solid var(--indigo);"></span></div><h3 class="heading-4" style="margin: 0px; color: var(--indigo); font-size: 20px;">{L("Government bodies and large firms", "সরকারি প্রতিষ্ঠান ও বড় প্রতিষ্ঠান")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("issue the work.", "কাজের আদেশ দেয়।")}</p></li>
+<li style="display: flex; flex-direction: column; gap: 10px;"><div style="display: flex; align-items: center; gap: 8px;"><span style="width: 36px; height: 36px; border-radius: 999px; border: 2px solid var(--indigo); display: grid; place-items: center; font: 700 15px / 1 Ubuntu, sans-serif; color: var(--indigo); flex: 0 0 auto;">{L("2", "২")}</span><span style="flex: 1 1 0%; border-top: 2px solid var(--indigo);"></span></div><h3 class="heading-4" style="margin: 0px; color: var(--indigo); font-size: 20px;">{L("Licensed firms", "লাইসেন্সধারী প্রতিষ্ঠান")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("bid for the tenders.", "টেন্ডারে দরপত্র দেয়।")}</p></li>
+<li style="display: flex; flex-direction: column; gap: 10px;"><div style="display: flex; align-items: center; gap: 8px;"><span style="width: 36px; height: 36px; border-radius: 999px; border: 2px solid var(--indigo); display: grid; place-items: center; font: 700 15px / 1 Ubuntu, sans-serif; color: var(--indigo); flex: 0 0 auto;">{L("3", "৩")}</span><span style="flex: 1 1 0%; border-top: 2px solid var(--indigo);"></span></div><h3 class="heading-4" style="margin: 0px; color: var(--indigo); font-size: 20px;">{L("Contractors, sub-contractors and households", "ঠিকাদার, উপ-ঠিকাদার ও গৃহস্থ")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("hire for the job.", "কাজের জন্য লোক নেন।")}</p></li>
+<li style="display: flex; flex-direction: column; gap: 10px;"><div style="display: flex; align-items: center; gap: 8px;"><span style="width: 36px; height: 36px; border-radius: 999px; border: 2px solid var(--indigo); display: grid; place-items: center; font: 700 15px / 1 Ubuntu, sans-serif; color: var(--indigo); flex: 0 0 auto;">{L("4", "৪")}</span><span style="flex: 1 1 0%; border-top: 2px dashed var(--orange);"></span></div><h3 class="heading-4" style="margin: 0px; color: var(--indigo); font-size: 20px;">{L("A broker or sardar", "একজন সর্দার")}</h3><p class="body" style="margin: 0px; color: var(--ink-muted);">{L("puts the crew together.", "দল গড়ে দেন।")}</p></li>
+<li style="display: flex; flex-direction: column; gap: 10px;"><div style="display: flex; align-items: center; gap: 8px;"><span style="width: 36px; height: 36px; border-radius: 999px; background: var(--orange); display: grid; place-items: center; font: 700 15px / 1 Ubuntu, sans-serif; color: var(--indigo); flex: 0 0 auto;">{L("5", "৫")}</span></div><h3 class="heading-4" style="margin: 0px; color: var(--indigo); font-size: 20px;">{L("The worker", "কর্মী")}</h3><p class="body" style="margin: 0px; color: var(--ink);">{L("is picked at dawn, paid in cash, and left with no record.", "ভোরে ডাক পান, নগদে মজুরি পান, আর কোনো রেকর্ড ছাড়াই থেকে যান।")}</p></li>
+</ol>
+</div></section><section data-screen-label="Who carries the most risk" data-theme="light" style="background: rgb(255, 255, 255); padding-block: 80px;">
+<div class="k-container">
+<h2 style='margin: 0px 0px 40px; font: 700 clamp(30px, 3vw, 42px) / 1.1 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1px; color: var(--indigo); text-align: center;'>{L("Who carries the most risk", "সবচেয়ে বেশি ঝুঁকি কাদের")}</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px;">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<div style="aspect-ratio: 4 / 3; border-radius: 4px; overflow: hidden; background: var(--slot);"><img alt={L("A woman worker on a building site", "নির্মাণ সাইটে একজন নারী কর্মী")} src="/images/unsplash-1591260315238-w700.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;"/></div>
+<h3 class="heading-3" style="margin: 0px; color: var(--indigo);">{L("Women", "নারী")}</h3>
+<div style="display: flex; gap: 28px; flex-wrap: wrap;">
+<div><p style="margin: 0px; font: 700 36px / 1 Ubuntu, sans-serif; color: var(--indigo); letter-spacing: -1px;">{L("96%", "৯৬%")}</p><p class="small" style="margin: 4px 0px 0px; color: var(--ink);">{L("of employed women work informally", "কর্মরত নারী অনানুষ্ঠানিক খাতে কাজ করেন")}</p></div>
+<div><p style="margin: 0px; font: 700 36px / 1 Ubuntu, sans-serif; color: var(--indigo); letter-spacing: -1px;">{L("57%", "৫৭%")}</p><p class="small" style="margin: 4px 0px 0px; color: var(--ink);">{L("of men's pay, in elementary jobs", "পুরুষের মজুরির তুলনায়, প্রাথমিক পর্যায়ের কাজে")}</p></div>
+</div>
+<p class="small" style="margin: 0px; color: var(--ink-muted);">{L("BBS Labour Force Survey 2024", "বিবিএস শ্রমশক্তি জরিপ ২০২৪")}</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<div style="aspect-ratio: 4 / 3; border-radius: 4px; overflow: hidden; background: var(--slot);"><img alt={L("A labourer working outdoors in the heat", "রোদে খোলা জায়গায় কাজ করছেন একজন শ্রমিক")} src="/images/unsplash-1616610269931-w700.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;"/></div>
+<h3 class="heading-3" style="margin: 0px; color: var(--indigo);">{L("Outdoor workers", "খোলা জায়গার কর্মী")}</h3>
+<p class="body" style="margin: 0px; color: var(--ink-muted);">{L("On roads, roofs and sites through the heat and the monsoon. When the weather stops the work, the day's pay stops with it.", "গরম আর বর্ষায় রাস্তায়, ছাদে, সাইটে কাজ। আবহাওয়া কাজ থামালে সেদিনের মজুরিও থেমে যায়।")}</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<div style="aspect-ratio: 4 / 3; border-radius: 4px; overflow: hidden; background: var(--slot);"><img alt={L("An older worker among a crowd, newly arrived in the city", "ভিড়ের মধ্যে শহরে নতুন আসা একজন প্রবীণ কর্মী")} src="/images/work-elder.webp" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; display: block;"/></div>
+<h3 class="heading-3" style="margin: 0px; color: var(--indigo);">{L("Seasonal workers", "মৌসুমি কর্মী")}</h3>
+<p class="body" style="margin: 0px; color: var(--ink-muted);">{L("New to the city between harvests, with no one to vouch for them and nothing to show for the work they have done before.", "দুই ফসলের মাঝে শহরে নতুন আসেন। তাদের হয়ে বলার কেউ নেই, আগের কাজের কোনো প্রমাণও নেই।")}</p>
+</div>
+</div>
+</div></section><section data-screen-label="More figures" data-theme="light" style="background: var(--paper); padding-block: 72px;">
+<div class="k-container">
+<h2 style='margin: 0px 0px 32px; font: 700 clamp(26px, 2.4vw, 34px) / 1.15 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -0.8px; color: var(--indigo); text-align: center;'>{L("The rest of the picture", "বাকি চিত্র")}</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0px; border-top: 1px solid var(--line);">
+<div style="padding: 20px 20px 20px 0px; border-bottom: 1px solid var(--line);"><p style="margin: 0px; font: 700 32px / 1 Ubuntu, sans-serif; color: var(--indigo); letter-spacing: -1px;">{L("3 in 4", "৪ জনে ৩ জন")}</p><p class="body" style="margin: 8px 0px 4px; color: var(--ink);">{L("wage earners are paid only in cash", "মজুরি পান শুধু নগদে")}</p><p class="small" style="margin: 0px; color: var(--ink-muted);">{L("World Bank Global Findex 2025", "বিশ্বব্যাংক গ্লোবাল ফাইন্ডেক্স ২০২৫")}</p></div>
+<div style="padding: 20px 20px 20px 0px; border-bottom: 1px solid var(--line);"><p style="margin: 0px; font: 700 32px / 1 Ubuntu, sans-serif; color: var(--indigo); letter-spacing: -1px;">{L("1 in 3", "৩ জনে ১ জন")}</p><p class="body" style="margin: 8px 0px 4px; color: var(--ink);">{L("paid employees have only a spoken agreement", "বেতনভোগী কর্মীর চুক্তি শুধু মুখে মুখে")}</p><p class="small" style="margin: 0px; color: var(--ink-muted);">{L("BBS Labour Force Survey 2024", "বিবিএস শ্রমশক্তি জরিপ ২০২৪")}</p></div>
+<div style="padding: 20px 20px 20px 0px; border-bottom: 1px solid var(--line);"><p style="margin: 0px; font: 700 32px / 1 Ubuntu, sans-serif; color: var(--indigo); letter-spacing: -1px;">{L("1 in 10", "১০ জনে ১ জন")}</p><p class="body" style="margin: 8px 0px 4px; color: var(--ink);">{L("paid employees has an employer paying into a pension", "বেতনভোগী কর্মীর জন্য নিয়োগকর্তা পেনশনে টাকা দেন")}</p><p class="small" style="margin: 0px; color: var(--ink-muted);">{L("BBS Labour Force Survey 2024", "বিবিএস শ্রমশক্তি জরিপ ২০২৪")}</p></div>
+<div style="padding: 20px 20px 20px 0px; border-bottom: 1px solid var(--line);"><p style="margin: 0px; font: 700 32px / 1 Ubuntu, sans-serif; color: var(--indigo); letter-spacing: -1px;">{L("37 lakh", "৩৭ লাখ")}</p><p class="body" style="margin: 8px 0px 4px; color: var(--ink);">{L("people work in construction", "মানুষ নির্মাণ খাতে কাজ করেন")}</p><p class="small" style="margin: 0px; color: var(--ink-muted);">{L("BBS Labour Force Survey 2024", "বিবিএস শ্রমশক্তি জরিপ ২০২৪")}</p></div>
+<div style="padding: 20px 20px 20px 0px; border-bottom: 1px solid var(--line);"><p style="margin: 0px; font: 700 32px / 1 Ubuntu, sans-serif; color: var(--indigo); letter-spacing: -1px;">{L("9% lower", "৯% কম")}</p><p class="body" style="margin: 8px 0px 4px; color: var(--ink);">{L("real construction wages than in 2021-22", "নির্মাণ খাতে প্রকৃত মজুরি, ২০২১-২২ সালের তুলনায়")}</p><p class="small" style="margin: 0px; color: var(--ink-muted);">{L("BBS Wage Rate Index, inflation-adjusted", "বিবিএস মজুরি হার সূচক, মূল্যস্ফীতি-সমন্বিত")}</p></div>
+</div>
+</div></section><section data-screen-label="SDGs" data-theme="indigo" style="background: var(--indigo); color: rgb(255, 255, 255); padding-block: 80px;">
+<div class="k-container">
+<h2 style='margin: 0px 0px 12px; font: 700 clamp(30px, 3vw, 42px) / 1.1 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -1px; color: rgb(255, 255, 255); text-align: center;'>{L("Why it matters for Bangladesh", "বাংলাদেশের জন্য কেন জরুরি")}</h2>
+<p class="body-lg" style="margin: 0px 0px 40px; color: var(--lavender); text-align: center;">{L("What recorded work can change, goal by goal.", "রেকর্ড করা কাজ কী বদলাতে পারে, লক্ষ্য ধরে ধরে।")}</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px 24px;">
+<div style="border-top: 2px solid var(--orange); padding-top: 16px; display: flex; flex-direction: column; gap: 8px;"><p style="margin: 0px; font: 700 40px / 1 Ubuntu, sans-serif; color: var(--orange);">{L("1", "১")}</p><h3 class="heading-4" style="margin: 0px; color: rgb(255, 255, 255); font-size: 20px;">{L("No poverty", "দারিদ্র্য বিলোপ")}</h3><p class="body" style="margin: 0px; color: var(--lavender);">{L("A record of steady work can open the door to credit and support.", "নিয়মিত কাজের রেকর্ড ঋণ ও সহায়তার দরজা খুলে দিতে পারে।")}</p></div>
+<div style="border-top: 2px solid var(--orange); padding-top: 16px; display: flex; flex-direction: column; gap: 8px;"><p style="margin: 0px; font: 700 40px / 1 Ubuntu, sans-serif; color: var(--orange);">{L("5", "৫")}</p><h3 class="heading-4" style="margin: 0px; color: rgb(255, 255, 255); font-size: 20px;">{L("Gender equality", "লিঙ্গ সমতা")}</h3><p class="body" style="margin: 0px; color: var(--lavender);">{L("Women's work, counted in their own name, is harder to underpay.", "নারীর কাজ নিজের নামে গোনা হলে তাকে কম মজুরি দেওয়া কঠিন হয়।")}</p></div>
+<div style="border-top: 2px solid var(--orange); padding-top: 16px; display: flex; flex-direction: column; gap: 8px;"><p style="margin: 0px; font: 700 40px / 1 Ubuntu, sans-serif; color: var(--orange);">{L("8", "৮")}</p><h3 class="heading-4" style="margin: 0px; color: rgb(255, 255, 255); font-size: 20px;">{L("Decent work", "শোভন কাজ")}</h3><p class="body" style="margin: 0px; color: var(--lavender);">{L("Proof of each day makes fair pay and safe sites something to stand on.", "প্রতিটি দিনের প্রমাণ থাকলে ন্যায্য মজুরি আর নিরাপদ সাইট দাবি করার ভিত্তি থাকে।")}</p></div>
+<div style="border-top: 2px solid var(--orange); padding-top: 16px; display: flex; flex-direction: column; gap: 8px;"><p style="margin: 0px; font: 700 40px / 1 Ubuntu, sans-serif; color: var(--orange);">{L("9", "৯")}</p><h3 class="heading-4" style="margin: 0px; color: rgb(255, 255, 255); font-size: 20px;">{L("Industry and infrastructure", "শিল্প ও অবকাঠামো")}</h3><p class="body" style="margin: 0px; color: var(--lavender);">{L("Roads and buildings with a clear record of who built them.", "কারা গড়েছেন, তার স্পষ্ট রেকর্ডসহ রাস্তা ও ভবন।")}</p></div>
+<div style="border-top: 2px solid var(--orange); padding-top: 16px; display: flex; flex-direction: column; gap: 8px;"><p style="margin: 0px; font: 700 40px / 1 Ubuntu, sans-serif; color: var(--orange);">{L("10", "১০")}</p><h3 class="heading-4" style="margin: 0px; color: rgb(255, 255, 255); font-size: 20px;">{L("Reduced inequalities", "বৈষম্য হ্রাস")}</h3><p class="body" style="margin: 0px; color: var(--lavender);">{L("Workers the country can count are workers it can reach.", "যে কর্মীদের দেশ গুনতে পারে, তাদের কাছেই দেশ পৌঁছাতে পারে।")}</p></div>
+</div>
+</div></section><section data-screen-label="Sources and CTA" data-theme="light" style="background: rgb(255, 255, 255); padding-block: 72px;">
+<div class="k-container">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px 64px; align-items: start;">
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<h2 class="heading-4" style="margin: 0px; color: var(--indigo);">{L("Sources", "তথ্যসূত্র")}</h2>
+<ul style="margin: 0px; padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
+<li class="body" style="color: var(--ink);">{L("Bangladesh Bureau of Statistics, Labour Force Survey 2024", "বাংলাদেশ পরিসংখ্যান ব্যুরো, শ্রমশক্তি জরিপ ২০২৪")}</li>
+<li class="body" style="color: var(--ink);">{L("Bangladesh Bureau of Statistics, Wage Rate Index (inflation-adjusted)", "বাংলাদেশ পরিসংখ্যান ব্যুরো, মজুরি হার সূচক (মূল্যস্ফীতি-সমন্বিত)")}</li>
+<li class="body" style="color: var(--ink);">{L("World Bank, Global Findex Database 2025", "বিশ্বব্যাংক, গ্লোবাল ফাইন্ডেক্স ডেটাবেস ২০২৫")}</li>
+</ul>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px;">
+<h2 style='margin: 0px; font: 700 clamp(26px, 2.4vw, 34px) / 1.15 Ubuntu, "Trebuchet MS", sans-serif; letter-spacing: -0.8px; color: var(--indigo);'>{L("Help put the work on record.", "কাজকে রেকর্ডে তুলতে সাহায্য করুন।")}</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 12px;">
+<a class="k-btn k-btn--primary k-btn--md" href={href("/join")}>{L("Join early access", "আগাম নিবন্ধন করুন")}<span aria-hidden="true" class="k-btn__arrow">→</span></a>
+<a class="k-btn k-btn--secondary k-btn--md" href={href("/for-clients")}>{L("For clients", "ক্লায়েন্টদের জন্য")}<span aria-hidden="true" class="k-btn__arrow">→</span></a>
+</div>
+</div>
+</div>
+</div></section></main>

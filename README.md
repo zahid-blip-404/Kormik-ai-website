@@ -1,71 +1,40 @@
-# Kormik — Digital Labour Infrastructure
+# kormik.com.bd
 
-Marketing website for **Kormik** (কর্মীক), Bangladesh's verified worker platform.
+Public pre-launch preview site for **Kormik (কর্মীক)**: a record that's yours for Bangladesh's informal workers.
+Built with [Astro](https://astro.build) 7 and deployed on Vercel. English at `/`, Bangla at `/bn`.
 
-
-
-## Tech Stack
-
-- **Next.js 14** (App Router, static export)
-- **Tailwind CSS v3** (custom dark design system)
-- **Framer Motion** (animations, respects reduced motion)
-- **TypeScript**
-
-## Quick Start
+## Run it
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000
-npm run build      # generates /out folder
+npm run dev        # http://localhost:4321
+npm run build      # static pages + /api functions in .vercel/output
 ```
 
-## Deploy
+Node 22.12 or newer.
 
-The site exports to a static `out/` folder. Upload it to any host:
+## How the site is put together
 
-- **Vercel** — `npx vercel --prod`
-- **cPanel/VPS** — upload `out/` contents via FTP
+| Path | What |
+|---|---|
+| `src/pages/*.astro`, `src/pages/bn/*.astro` | Routes (EN / BN). Each wraps a page component in the layout. |
+| `src/components/pages/*.astro` | Page bodies. Home, Why it matters, For clients, Approach and About are **generated** from the Claude Design export (see below). Join is hand-built. |
+| `src/components/{Nav,Footer,EarlyAccessForm,TradeIcon}.astro` | Shared parts. |
+| `src/styles/` | Kormik design-system tokens and components (from the export), `mobile.css` (phone refinements), `global.css`. |
+| `src/scripts/site.ts`, `src/scripts/join.ts` | Menu, language switch, early-access forms, the Join sign-up steps and partner form. |
+| `src/pages/api/early-access.ts`, `src/pages/api/partner.ts` | Form endpoints (Vercel functions) that insert into Supabase. |
+| `supabase/migrations/` | SQL for the two form tables (insert-only for the site). |
+| `design/tools/` | The port: `gen.py` (snapshot → page component), `strings/*.json` (English → Bangla), `compare.py` (pixel diff against the design), `crawl.py` (link check). |
 
-## Pages
+### Editing copy
 
-| Route | Description |
-|-------|-------------|
-| `/` | Landing page (hero with video bg, 13 sections) |
-| `/for-workers` | Worker-focused features |
-| `/for-sardars` | Sardar/gang-leader features |
-| `/for-contractors` | Contractor hiring features |
-| `/for-enterprise` | Enterprise/org features |
-| `/how-it-works` | Platform walkthrough |
-| `/impact` | Social impact metrics |
-| `/about` | Company story |
-| `/blog` | Blog listing |
-| `/contact` | Contact form |
-| `/privacy` | Privacy policy |
-| `/terms` | Terms of service |
+For the generated pages, edit the Bangla (or fix English) in `design/tools/strings/<page>.json`, then run
+`npm run port:generate` (needs Python 3 with `beautifulsoup4`). Join's copy lives in `src/components/pages/Join.astro`.
+All Bangla is a draft for a native speaker to review.
 
-## Brand Assets
+## Forms (Supabase)
 
-| File | Description |
-|------|-------------|
-| `public/logo.svg` | White-text logo for dark backgrounds |
-| `public/logo.png` | Transparent PNG logo |
-| `public/og-image.jpg` | Social sharing image |
-| `public/video/hero-bg.mp4` | Hero background video |
-| `Kormik logo file delivery/` | Full brand kit (AI, EPS, PDF, SVG, PNG) |
+1. Run `supabase/migrations/20260928000000_kormik_site_forms.sql` in the Kormik Supabase project.
+2. In Vercel → Project → Settings → Environment Variables, add `SUPABASE_URL` and `SUPABASE_KEY` (the anon key). Redeploy.
 
-## Design System
-
-- **Background:** `#050505` (near-black)
-- **Brand:** `#FF5C1A` (electric orange)
-- **Fonts:** Plus Jakarta Sans (display) + Inter (body) + IBM Plex Mono (labels)
-- **Glass effects:** 4 tiers of glassmorphism (sm, md, brand, dark)
-
-See `handoff/figma-relume/design-tokens.json` for the full token set.
-
-## Handoff
-
-| Folder | For |
-|--------|-----|
-| `handoff/claude-vscode/` | Developers — VS Code + Claude Code setup guide |
-| `handoff/figma-relume/` | Designers — design tokens JSON + Figma/Relume import guide |
-| `handoff/wordpress/` | CTO — WordPress migration options |
+Until both are set, the live forms answer "Something went wrong" (locally they log the submission instead).

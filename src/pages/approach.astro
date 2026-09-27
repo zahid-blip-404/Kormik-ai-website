@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import Page from '../components/pages/Approach.astro';
+import { metaFor } from '../lib/meta';
+const m = metaFor('approach', 'en');
+---
+<Base lang="en" page="approach" path={m.path} title={m.title} description={m.description} sources={m.sources}>
+  <Page lang="en" />
+</Base>

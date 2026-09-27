@@ -1,0 +1,231 @@
+---
+// Join page, ported by hand from Join.dc.html (Claude Design export): its three-step
+// sign-up and partner form are driven by src/scripts/join.ts instead of React state.
+import { makeL, type Lang } from '../../lib/i18n';
+import TradeIcon from '../TradeIcon.astro';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = makeL(lang);
+
+const t = {
+  kicker: L('Early access · Opening in Dhaka first', 'আগাম নিবন্ধন · প্রথমে ঢাকায়'),
+  h1a: L('Your place on the record', 'রেকর্ডে আপনার জায়গা'), h1b: L('starts here.', 'এখান থেকেই শুরু।'),
+  lede: L('Two quick steps. Tell us who you are, leave your mobile number, and we will let you know when Kormik opens near you.', 'দুটি ছোট ধাপ। আপনি কে তা জানান, মোবাইল নম্বর দিন, আর কর্মীক আপনার এলাকায় চালু হলে আমরা জানিয়ে দেব।'),
+  q1: L('Who are you joining as?', 'আপনি কী হিসেবে যোগ দিচ্ছেন?'),
+  continue: L('Continue', 'এগিয়ে যান'),
+  change: L('Change', 'বদলান'),
+  q2: L('Your mobile number', 'আপনার মোবাইল নম্বর'),
+  phoneErr: L('Enter a 10-digit mobile number after +880, starting with 1.', '+880 এর পরে ১ দিয়ে শুরু ১০ অঙ্কের নম্বর দিন।'),
+  serverErr: L('Something went wrong. Please try again in a moment.', 'এখন পাঠানো গেল না। একটু পরে আবার চেষ্টা করুন।'),
+  note: L('One text, when Kormik opens near you. Nothing else.', 'কর্মীক আপনার এলাকায় চালু হলে একটি এসএমএস। আর কিছু না।'),
+  submit: L('Join early access', 'আগাম নিবন্ধন করুন'),
+  doneTitle: L("You're on the list.", 'আপনার নাম তালিকায় উঠেছে।'),
+  doneBody: L("We'll send one text when Kormik opens near you. Nothing else.", 'কর্মীক আপনার এলাকায় চালু হলে একটি এসএমএস পাঠাব। আর কিছু না।'),
+  another: L('Add another number', 'আরেকটি নম্বর দিন'),
+  waysTitle: L('Four ways in', 'যোগ দেওয়ার চারটি পথ'),
+  waysSub: L('Everyone who makes the work happen has a place.', 'যারা কাজটা ঘটান, সবার জন্য জায়গা আছে।'),
+  partnerTitle: L('Work with us', 'আমাদের সঙ্গে কাজ করুন'),
+  partnerBody: L('NGOs and worker groups, researchers, public bodies, contractors, businesses and media. Tell us what you have in mind.', 'এনজিও ও কর্মী সংগঠন, গবেষক, সরকারি প্রতিষ্ঠান, ঠিকাদার, ব্যবসা ও গণমাধ্যম। আপনার ভাবনা জানান।'),
+  lblName: L('Name', 'নাম'), lblOrg: L('Organisation', 'প্রতিষ্ঠান'), lblType: L('Type', 'ধরন'), lblMsg: L('Message', 'বার্তা'),
+  privacy: L('Your details are used only to reply to your enquiry.', 'আপনার তথ্য শুধু উত্তর দিতে ব্যবহার হবে।'),
+  send: L('Send enquiry', 'পাঠান'),
+  partnerDone: L('Thank you. We will reply soon.', 'ধন্যবাদ। শিগগিরই উত্তর দেব।'),
+  faqTitle: L('Questions', 'প্রশ্ন'),
+  contactTitle: L('Get in touch', 'যোগাযোগ করুন'),
+  contactBody: L('For anything the form does not cover, write to us.', 'ফর্মে না মিললে আমাদের লিখুন।'),
+};
+const promises = [
+  L('One text, when Kormik opens near you. Nothing else.', 'চালু হলে একটি এসএমএস। আর কিছু না।'),
+  L('Your number is never shared or sold.', 'আপনার নম্বর কখনো কাউকে দেওয়া বা বিক্রি করা হবে না।'),
+  L('Opening in Dhaka first.', 'প্রথমে ঢাকায় চালু হবে।'),
+];
+const steps = [L('Who you are', 'আপনি কে'), L('Your number', 'আপনার নম্বর'), L('Done', 'সম্পন্ন')];
+const roles = [
+  { id: 'work', glyph: 'shovel', title: L('I want work', 'আমি কাজ চাই'), line: L('Get your first record of work, in your own name.', 'নিজের নামে প্রথম কাজের রেকর্ড।') },
+  { id: 'lead', glyph: 'tools', title: L('I lead a team', 'আমি দল চালাই'), line: L('Keep your network. Build a name for reliable crews.', 'নেটওয়ার্ক থাকবে, নির্ভরযোগ্য দলের নাম হবে।') },
+  { id: 'crew', glyph: 'toolbox', title: L('I need a crew', 'আমার দল দরকার'), line: L('For homes, shops, contractors and developers.', 'বাড়ি, দোকান, ঠিকাদার ও ডেভেলপারের জন্য।') },
+  { id: 'gov', glyph: 'compass', title: L('Government or public body', 'সরকারি বা গণপ্রতিষ্ঠান'), line: L('Organised, recorded crews for public work.', 'সরকারি কাজের জন্য সংগঠিত, রেকর্ডভুক্ত দল।') },
+];
+const ways = [
+  { n: '01', img: '/images/pexels-39576121-w600.webp', alt: L('A bricklayer laying bricks on scaffolding', 'ভারায় ইট গাঁথছেন একজন রাজমিস্ত্রি'), kicker: L('Workers', 'কর্মী'), title: L('Your work, on record.', 'আপনার কাজ, রেকর্ডে।'), body: L('Masons, helpers, rod binders, painters, electricians, plumbers, tile and carpentry workers, cleaners, loaders. Every day you work, in your own name.', 'রাজমিস্ত্রি, জোগালি, রড মিস্ত্রি, রং মিস্ত্রি, ইলেকট্রিশিয়ান, প্লাম্বার, টাইলস ও কাঠমিস্ত্রি, পরিচ্ছন্নতা কর্মী, মালামাল বহনকারী। প্রতিটি কাজের দিন, নিজের নামে।'), cta: L('I want work', 'আমি কাজ চাই'), role: 'work' },
+  { n: '02', img: '/images/pexels-19857796-w600.webp', alt: L('A crew working together on a bridge in Chilmari, Bangladesh', 'বাংলাদেশের চিলমারীতে একটি সেতুতে একসঙ্গে কাজ করছে একটি দল'), kicker: L('Team Leaders', 'টিম লিডার'), title: L('Promoted, not deleted.', 'বাদ নয়, পদোন্নতি।'), body: L('Brokers, sardars and experienced workers who put crews together join as Team Leaders. Keep your network and build a name for reliable crews.', 'যারা দল গড়েন, সেই সর্দার ও অভিজ্ঞ কর্মীরা টিম লিডার হিসেবে যোগ দেন। নেটওয়ার্ক থাকবে, নির্ভরযোগ্য দলের জন্য নাম হবে।'), cta: L('I lead a team', 'আমি দল চালাই'), role: 'lead' },
+  { n: '03', img: '/images/pexels-4981802-w600.webp', alt: L('A worker fitting a wall socket inside a home', 'একটি বাড়ির ভেতরে দেয়ালের সকেট লাগাচ্ছেন একজন কর্মী'), kicker: L('Clients', 'ক্লায়েন্ট'), title: L('Need a crew? Hire people you can trust.', 'দল দরকার? বিশ্বস্ত মানুষ নিন।'), body: L('Homes, shops, contractors and developers. A Team Leader who answers for the crew, and a clear record of who worked on your job.', 'বাড়ি, দোকান, ঠিকাদার ও ডেভেলপার। দলের দায় নেন একজন টিম লিডার, আর কারা কাজ করেছেন তার স্পষ্ট রেকর্ড থাকে।'), cta: L('I need a crew', 'আমার দল দরকার'), role: 'crew' },
+  { n: '04', img: '/images/pexels-36892097-w600.webp', alt: L('A technician repairing a streetlight in the city', 'শহরে একটি সড়কবাতি মেরামত করছেন একজন কারিগর'), kicker: L('Government and public works', 'সরকারি ও গণপূর্ত'), title: L('Organised, recorded crews for public work.', 'সরকারি কাজের জন্য সংগঠিত, রেকর্ডভুক্ত দল।'), body: L('A clear record of every day on site, from the first notice to the final handover.', 'প্রথম নোটিশ থেকে হস্তান্তর পর্যন্ত, সাইটের প্রতিটি দিনের স্পষ্ট রেকর্ড।'), cta: L('Talk to us about public works', 'সরকারি কাজ নিয়ে কথা বলুন'), role: null },
+];
+const types = lang === 'bn'
+  ? ['এনজিও বা কর্মী সংগঠন', 'গবেষক', 'সরকারি প্রতিষ্ঠান', 'ঠিকাদার বা ডেভেলপার', 'ব্যবসা', 'গণমাধ্যম', 'অন্যান্য']
+  : ['NGO or worker group', 'Researcher', 'Public body', 'Contractor or developer', 'Business', 'Media', 'Other'];
+const typeKeys = ['ngo', 'research', 'public', 'contractor', 'business', 'media', 'other'];
+const faqs = [
+  [L('Is Kormik live?', 'কর্মীক কি চালু হয়েছে?'), L('Not yet. Kormik is in pre-launch. Leave your number and we will tell you when we open.', 'এখনো না। কর্মীক এখন চালুর আগের পর্যায়ে। নম্বর দিলে চালু হলে জানিয়ে দেব।')],
+  [L('Where will it start?', 'কোথায় শুরু হবে?'), L('In Dhaka first.', 'প্রথমে ঢাকায়।')],
+  [L('Who is it for?', 'কাদের জন্য?'), L('Workers, Team Leaders, clients, and government and public bodies. Everyone who makes the work happen.', 'কর্মী, টিম লিডার, ক্লায়েন্ট, এবং সরকারি ও গণপ্রতিষ্ঠান। যারা কাজটা ঘটান, সবার জন্য।')],
+  [L('What happens to my number?', 'আমার নম্বরের কী হবে?'), L('We use it only to tell you when Kormik opens near you. It is never shared or sold.', 'শুধু আপনার কাছে কর্মীক চালু হলে জানাতে ব্যবহার হবে। কখনো কাউকে দেওয়া বা বিক্রি করা হবে না।')],
+  [L('Can I help test it?', 'আমি কি পরীক্ষায় সাহায্য করতে পারি?'), L('Yes. We are field testing now. Send us a message in the form above and say you would like to help.', 'হ্যাঁ। আমরা এখন মাঠপর্যায়ে পরীক্ষা করছি। ওপরের ফর্মে বার্তা পাঠিয়ে জানান।')],
+];
+const pad = (i: number) => String(i + 1).padStart(2, '0');
+const num = (s: string) => (lang === 'bn' ? s.replace(/[0-9]/g, (d) => '০১২৩৪৫৬৭৮৯'[Number(d)]) : s);
+const bodyFont = "'Helvetica Neue', Arimo, 'Anek Bangla', sans-serif";
+---
+<main data-page="join">
+<section id="start" data-theme="indigo" data-screen-label="Sign up" style="background: var(--indigo); color: #fff; padding-block: 56px 64px; overflow: hidden;">
+  <div class="k-container">
+    <div data-split="" style="display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 40px 64px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 22px; min-width: 0;">
+        <p style="margin: 0; display: flex; align-items: center; gap: 10px; font: 700 12px/1 'Helvetica Neue', Arimo, Arial, sans-serif; letter-spacing: 1.6px; text-transform: uppercase; color: var(--lavender);"><span style="width: 8px; height: 8px; border-radius: 999px; background: var(--orange);"></span>{t.kicker}</p>
+        <h1 lang={lang} style="margin: 0; font: 700 clamp(34px, 3.6vw, 52px)/1.12 Ubuntu, 'Anek Bangla', sans-serif; letter-spacing: -1px; color: #fff;">{t.h1a} <span style="color: var(--orange);">{t.h1b}</span></h1>
+        <p lang={lang} class="body-lg" style="margin: 0; color: var(--lavender); max-width: 44ch;">{t.lede}</p>
+        <ul style="list-style: none; margin: 8px 0 0; padding: 20px 0 0; border-top: 1px solid #ffffff2e; display: flex; flex-direction: column; gap: 14px;">
+          {promises.map((p) => (
+            <li style="display: flex; gap: 14px; align-items: flex-start;"><span style="width: 24px; height: 24px; border-radius: 999px; background: var(--orange); color: var(--indigo); display: grid; place-items: center; font-size: 13px; font-weight: 700; flex: none;">✓</span><span lang={lang} class="body" style="color: #fff;">{p}</span></li>
+          ))}
+        </ul>
+      </div>
+
+      <div data-signup data-lang={lang} data-err-phone={t.phoneErr} data-err-server={t.serverErr} style="background: #fff; color: var(--ink); border-radius: 20px; box-shadow: 0 24px 60px #00000040; overflow: hidden; min-width: 0;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line);" role="list" aria-label={L('Sign-up steps', 'নিবন্ধনের ধাপ')}>
+          {steps.map((label, i) => (
+            <div role="listitem" data-step={i + 1} aria-current={i === 0 ? 'step' : undefined} style={`padding: 14px 18px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid ${i === 0 ? 'var(--orange)' : 'transparent'};`}>
+              <span data-dot style={`width: 26px; height: 26px; border-radius: 999px; background: ${i === 0 ? 'var(--indigo)' : 'var(--paper)'}; color: ${i === 0 ? '#fff' : 'var(--ink-muted)'}; display: grid; place-items: center; font: 700 13px/1 Ubuntu, sans-serif; flex: none;`}>{num(String(i + 1))}</span>
+              <span data-label lang={lang} style={`font: 700 13px/1.2 ${bodyFont}; color: ${i === 0 ? 'var(--indigo)' : 'var(--ink-muted)'};`}>{label}</span>
+            </div>
+          ))}
+        </div>
+
+        <div style="padding: 28px;">
+          <div data-panel="1">
+            <h2 lang={lang} style="margin: 0 0 18px; font: 700 22px/1.3 Ubuntu, 'Anek Bangla', sans-serif; color: var(--indigo);">{t.q1}</h2>
+            <div data-roles="" role="radiogroup" aria-label={t.q1} style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              {roles.map((r) => (
+                <button type="button" data-role={r.id} data-title={r.title} role="radio" aria-checked="false" aria-pressed="false" style="text-align: left; cursor: pointer; border-radius: 14px; border: 2px solid var(--line); background: #fff; color: var(--indigo); padding: 16px; display: flex; flex-direction: column; gap: 10px; min-height: 124px; font: inherit; transition: border-color .15s ease, background .15s ease;">
+                  <span style="display: flex; align-items: center; justify-content: space-between; width: 100%;"><span data-icon style="color: var(--indigo);"><TradeIcon name={r.glyph} size={28} /></span><span data-tick style="width: 20px; height: 20px; border-radius: 999px; border: 2px solid var(--indigo); background: transparent; box-sizing: border-box;"></span></span>
+                  <span lang={lang} style="font: 700 17px/1.25 Ubuntu, 'Anek Bangla', sans-serif;">{r.title}</span>
+                  <span data-sub lang={lang} style={`font: 400 14px/1.45 ${bodyFont}; color: var(--ink-muted);`}>{r.line}</span>
+                </button>
+              ))}
+            </div>
+            <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+              <button type="button" data-next disabled style={`min-height: 52px; padding: 0 28px; border: 0; border-radius: 999px; background: var(--orange); color: var(--indigo); font: 700 16px/1 ${bodyFont}; cursor: pointer; opacity: 0.45;`}>{t.continue} →</button>
+            </div>
+          </div>
+
+          <div data-panel="2" hidden>
+            <form data-phone-form novalidate style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <span data-role-title lang={lang} style={`font: 700 13px/1 ${bodyFont}; color: var(--indigo); background: var(--paper); border-radius: 999px; padding: 8px 12px;`}></span>
+                <button type="button" data-back style={`border: 0; background: none; color: var(--indigo); font: 700 13px/1 ${bodyFont}; text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 4px; cursor: pointer; min-height: 44px;`}>{t.change}</button>
+              </div>
+              <h2 lang={lang} style="margin: 0; font: 700 22px/1.3 Ubuntu, 'Anek Bangla', sans-serif; color: var(--indigo);">{t.q2}</h2>
+              <label data-phone-box style="display: flex; align-items: center; border: 2px solid var(--indigo); border-radius: 999px; min-height: 60px; padding: 0 8px 0 22px; gap: 12px; background: #fff;">
+                <span style="font: 700 18px/1 Ubuntu, sans-serif; color: var(--indigo); border-right: 1px solid var(--line); padding-right: 12px;">+880</span>
+                <input type="tel" name="phone" inputmode="numeric" autocomplete="tel-national" placeholder="1XXX XXXXXX" aria-label={t.q2} maxlength="14" style="flex: 1; min-width: 0; border: 0; outline: none; font: 400 20px/1 'Helvetica Neue', Arimo, Arial, sans-serif; letter-spacing: 1px; color: var(--ink); background: transparent; min-height: 52px;" />
+              </label>
+              <input class="k-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <p data-phone-error lang={lang} class="small" role="alert" hidden style="margin: -6px 0 0 22px; color: #B42318;"></p>
+              <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;">
+                <p lang={lang} class="small" style="margin: 0; color: var(--ink-muted); max-width: 34ch;">{t.note}</p>
+                <button type="submit" style={`min-height: 52px; padding: 0 28px; border: 0; border-radius: 999px; background: var(--orange); color: var(--indigo); font: 700 16px/1 ${bodyFont}; cursor: pointer;`}>{t.submit} →</button>
+              </div>
+            </form>
+          </div>
+
+          <div data-panel="3" hidden>
+            <div role="status" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 12px 0 4px;">
+              <div aria-hidden="true" style="width: 64px; aspect-ratio: 502 / 689; background: var(--orange); -webkit-mask-image: url(/images/fingerprint.webp); mask-image: url(/images/fingerprint.webp); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;"></div>
+              <h2 lang={lang} style="margin: 0; font: 700 26px/1.25 Ubuntu, 'Anek Bangla', sans-serif; color: var(--indigo);">{t.doneTitle}</h2>
+              <p lang={lang} class="body" style="margin: 0; color: var(--ink-muted); max-width: 40ch;">{t.doneBody}</p>
+              <p style="margin: 0; font: 700 16px/1 Ubuntu, sans-serif; color: var(--indigo); background: var(--paper); border-radius: 999px; padding: 10px 16px;">+880 <span data-done-phone></span> · <span data-done-role lang={lang}></span></p>
+              <button type="button" data-reset style={`border: 0; background: none; color: var(--indigo); font: 700 14px/1 ${bodyFont}; text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 4px; cursor: pointer; min-height: 44px;`}>{t.another}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-theme="light" data-screen-label="Ways in" style="background: var(--paper); padding-block: 72px;">
+  <div class="k-container">
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; margin-bottom: 36px;">
+      <h2 lang={lang} style="margin: 0; font: 700 clamp(30px, 3vw, 42px)/1.15 Ubuntu, 'Anek Bangla', sans-serif; letter-spacing: -1px; color: var(--indigo);">{t.waysTitle}</h2>
+      <p lang={lang} class="body-lg" style="margin: 0; color: var(--ink-muted);">{t.waysSub}</p>
+    </div>
+    <div style="display: flex; flex-direction: column; border-top: 1px solid var(--line);">
+      {ways.map((w) => (
+        <div data-way="" style="display: grid; grid-template-columns: 220px minmax(0, 1fr) auto; gap: 20px 32px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line);">
+          <div style="height: 140px; border-radius: 8px; overflow: hidden; background: var(--slot);"><img src={w.img} alt={w.alt} loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0;"><p lang={lang} style={`margin: 0; font: 700 12px/1.4 ${bodyFont}; letter-spacing: 1.4px; text-transform: uppercase; color: var(--orange-ink);`}>{num(w.n)} · {w.kicker}</p><h3 lang={lang} style="margin: 0; font: 700 24px/1.25 Ubuntu, 'Anek Bangla', sans-serif; color: var(--indigo);">{w.title}</h3><p lang={lang} class="body" style="margin: 0; color: var(--ink-muted); max-width: 62ch;">{w.body}</p></div>
+          {w.role
+            ? <button type="button" data-way-role={w.role} style={`min-height: 48px; padding: 0 22px; border: 2px solid var(--indigo); border-radius: 999px; background: #fff; color: var(--indigo); font: 700 15px/1 ${bodyFont}; cursor: pointer; white-space: nowrap;`}>{w.cta} →</button>
+            : <a href="#partner" data-partner-type="public" style={`min-height: 48px; padding: 0 22px; border: 2px solid var(--indigo); border-radius: 999px; background: #fff; color: var(--indigo); font: 700 15px/1 ${bodyFont}; display: inline-flex; align-items: center; text-decoration: none; white-space: nowrap; box-sizing: border-box;`}>{w.cta}→</a>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section id="partner" data-theme="light" data-screen-label="Partner enquiry" style="background: #fff; padding-block: 72px;">
+  <div class="k-container">
+    <div data-split="" style="display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 32px 64px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <h2 lang={lang} style="margin: 0; font: 700 clamp(30px, 3vw, 42px)/1.15 Ubuntu, 'Anek Bangla', sans-serif; letter-spacing: -1px; color: var(--indigo);">{t.partnerTitle}</h2>
+        <p lang={lang} class="body-lg" style="margin: 0; color: var(--ink-muted);">{t.partnerBody}</p>
+      </div>
+      <div style="border: 1px solid var(--line); border-radius: 16px; padding: 28px;">
+        <p data-partner-done lang={lang} role="status" hidden style="margin: 0; font: 700 20px/1.4 Ubuntu, 'Anek Bangla', sans-serif; color: var(--indigo);">✓ {t.partnerDone}</p>
+        <form data-partner-form data-lang={lang} data-err-server={t.serverErr} style="display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+            <label style="display: flex; flex-direction: column; gap: 8px;"><span lang={lang} style={`font: 700 13px/1 ${bodyFont}; color: var(--ink);`}>{t.lblName}</span><input required name="name" autocomplete="name" maxlength="120" style="min-height: 50px; border: 2px solid var(--indigo); border-radius: 999px; padding: 0 18px; font: 400 16px/1 'Helvetica Neue', Arimo, Arial, sans-serif; background: #fff; box-sizing: border-box;" /></label>
+            <label style="display: flex; flex-direction: column; gap: 8px;"><span lang={lang} style={`font: 700 13px/1 ${bodyFont}; color: var(--ink);`}>{t.lblOrg}</span><input name="org" autocomplete="organization" maxlength="160" style="min-height: 50px; border: 2px solid var(--indigo); border-radius: 999px; padding: 0 18px; font: 400 16px/1 'Helvetica Neue', Arimo, Arial, sans-serif; background: #fff; box-sizing: border-box;" /></label>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span lang={lang} id="partner-type-label" style={`font: 700 13px/1 ${bodyFont}; color: var(--ink);`}>{t.lblType}</span>
+            <div role="radiogroup" aria-labelledby="partner-type-label" style="display: flex; flex-wrap: wrap; gap: 8px;">
+              {types.map((label, i) => (
+                <button type="button" data-type={typeKeys[i]} role="radio" aria-checked="false" aria-pressed="false" lang={lang} style={`min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid var(--indigo); background: #fff; color: var(--indigo); font: 700 14px/1 ${bodyFont}; cursor: pointer;`}>{label}</button>
+              ))}
+            </div>
+          </div>
+          <label style="display: flex; flex-direction: column; gap: 8px;"><span lang={lang} style={`font: 700 13px/1 ${bodyFont}; color: var(--ink);`}>{t.lblMsg}</span><textarea required name="msg" rows="4" maxlength="4000" style="border: 2px solid var(--indigo); border-radius: 12px; padding: 14px 18px; font: 400 16px/1.5 'Helvetica Neue', Arimo, Arial, sans-serif; background: #fff; resize: vertical;"></textarea></label>
+          <input class="k-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <p data-partner-error lang={lang} class="small" role="alert" hidden style="margin: 0; color: #B42318;"></p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;">
+            <p lang={lang} class="small" style="margin: 0; color: var(--ink-muted);">{t.privacy}</p>
+            <button type="submit" style={`min-height: 52px; padding: 0 28px; border: 0; border-radius: 999px; background: var(--indigo); color: #fff; font: 700 16px/1 ${bodyFont}; cursor: pointer;`}>{t.send} →</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-theme="light" data-screen-label="FAQ and contact" style="background: var(--paper); padding-block: 72px;">
+  <div class="k-container">
+    <div data-split="" style="display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr); gap: 32px 56px; align-items: start;">
+      <div>
+        <h2 lang={lang} style="margin: 0 0 20px; font: 700 clamp(30px, 3vw, 42px)/1.15 Ubuntu, 'Anek Bangla', sans-serif; letter-spacing: -1px; color: var(--indigo);">{t.faqTitle}</h2>
+        {faqs.map(([q, a], i) => (
+          <details class="k-faq" open={i === 0}><summary class="k-faq__q"><span class="k-faq__n">{num(pad(i))}</span><span>{q}</span></summary><div class="k-faq__a">{a}</div></details>
+        ))}
+      </div>
+      <aside id="contact" style="background: var(--indigo); color: #fff; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+        <h3 lang={lang} style="margin: 0; font: 700 24px/1.25 Ubuntu, 'Anek Bangla', sans-serif; color: #fff;">{t.contactTitle}</h3>
+        <p lang={lang} class="body" style="margin: 0; color: var(--lavender);">{t.contactBody}</p>
+        <p style="margin: 4px 0 0; font: 700 17px/1.3 Ubuntu, sans-serif; color: var(--orange); overflow-wrap: anywhere;">[contact email to confirm]</p>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<style is:global>
+  input:focus, textarea:focus, button:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+  @media (max-width: 980px) { [data-split] { grid-template-columns: 1fr !important; } }
+  @media (max-width: 640px) { [data-way] { grid-template-columns: 1fr !important; } [data-way] > div:first-child { aspect-ratio: 16 / 9 !important; height: auto !important; } [data-roles] { grid-template-columns: 1fr !important; } }
+  [data-next]:disabled { cursor: not-allowed; }
+</style>
+
+<script>
+  import '../../scripts/join';
+</script>

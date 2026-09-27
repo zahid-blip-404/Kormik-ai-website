@@ -1,0 +1,32 @@
+/* Kormik design system (from the Claude Design export), in the export's load order. */
+@import "@fontsource/arimo/400.css";
+@import "@fontsource/arimo/500.css";
+@import "@fontsource/arimo/600.css";
+@import "@fontsource/arimo/700.css";
+@import "./fonts.css";
+@import "./colors.css";
+@import "./typography.css";
+@import "./spacing.css";
+@import "./components.css";
+@import "./mobile.css";
+
+/* Production additions (not in the design): */
+.k-trade-icon { display: inline-grid; place-items: center; line-height: 1; flex: none; }
+.k-trade-icon > svg { display: block; }
+.k-sr-only, .k-sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.k-form__error { margin: -4px 0 0; font-size: 13px; line-height: 1.45; color: #B42318; }
+[data-theme="indigo"] .k-form__error, [data-theme="orange"] .k-form__error { color: #fff; }
+.k-form__roles .k-chip:focus-visible, .k-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.k-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+.k-busy { opacity: .6; pointer-events: none; }
+/* Bangla pages: tracking breaks Bangla conjunct shaping, so reset it on text set in Bangla. */
+html[lang="bn"] body :is(h1, h2, h3, h4, p, span, a, li, button, summary, strong, em) { letter-spacing: 0 !important; }
+html[lang="bn"] body { line-height: normal; }
+
+/* Shared page rules from the design export (every page's <helmet> style). */
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); }
+a { color: var(--indigo); text-decoration-color: var(--orange); }
+a:hover { color: var(--indigo); }
+@media (max-width: 768px) { .k-nav__menu, .k-lang__opt, .k-chip { min-height: 44px; } .k-btn--link { min-height: 44px; display: inline-flex; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

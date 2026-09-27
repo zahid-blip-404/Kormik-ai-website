@@ -1,0 +1,84 @@
+/* Kormik colour tokens. Base palette + semantic aliases per section tone (data-theme). */
+:root {
+  --orange: #ff6d02;
+  --orange-ink: #b84e00;
+  --orange-soft: #ff8a33;
+  --indigo: #0d0e60;
+  --indigo-2: #1b1d7a;
+  --indigo-deep: #08093f;
+  --paper: #f7f8fc;
+  --white: #ffffff;
+  --ink: #111827;
+  --ink-muted: #4b5563;
+  --line: #dfe2ee;
+  --slot: #e8eaf3;
+  --lavender: #c4c6ea;
+  --lavender-dim: #9ea1d6;
+
+  /* Semantic (light / paper tone is the default) */
+  --surface: var(--paper);
+  --surface-raised: var(--white);
+  --surface-sunken: var(--slot);
+  --text: var(--ink);
+  --heading: var(--indigo);
+  --text-muted: var(--ink-muted);
+  --text-subtle: var(--ink-muted);
+  --accent: var(--orange);
+  --on-accent: var(--indigo);
+  --accent-text: var(--orange-ink);
+  --border: var(--line);
+  --focus: var(--indigo);
+  --shape-1: var(--orange);
+  --shape-2: var(--indigo);
+}
+
+[data-theme="light"] {
+  --surface: var(--paper);
+  --surface-raised: var(--white);
+  --surface-sunken: var(--slot);
+  --text: var(--ink);
+  --heading: var(--indigo);
+  --text-muted: var(--ink-muted);
+  --text-subtle: var(--ink-muted);
+  --accent: var(--orange);
+  --on-accent: var(--indigo);
+  --accent-text: var(--orange-ink);
+  --border: var(--line);
+  --focus: var(--indigo);
+  --shape-1: var(--orange);
+  --shape-2: var(--indigo);
+}
+
+[data-theme="indigo"] {
+  --surface: var(--indigo);
+  --surface-raised: var(--indigo-2);
+  --surface-sunken: var(--indigo-2);
+  --text: var(--white);
+  --heading: var(--white);
+  --text-muted: var(--lavender);
+  --text-subtle: var(--lavender-dim);
+  --accent: var(--orange);
+  --on-accent: var(--indigo);
+  --accent-text: var(--orange);
+  --border: #ffffff2e;
+  --focus: var(--orange);
+  --shape-1: var(--orange);
+  --shape-2: var(--white);
+}
+
+[data-theme="orange"] {
+  --surface: var(--orange);
+  --surface-raised: var(--white);
+  --surface-sunken: var(--orange-soft);
+  --text: var(--indigo);
+  --heading: var(--indigo);
+  --text-muted: #0d0e60cc;
+  --text-subtle: #0d0e60cc;
+  --accent: var(--indigo);
+  --on-accent: var(--white);
+  --accent-text: var(--indigo);
+  --border: #0d0e6033;
+  --focus: var(--indigo);
+  --shape-1: var(--indigo);
+  --shape-2: var(--white);
+}

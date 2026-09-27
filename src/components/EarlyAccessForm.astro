@@ -1,0 +1,24 @@
+---
+import type { Lang } from '../lib/i18n';
+
+interface Props { lang: Lang; id: string; defaultRole?: number; source: string }
+const { lang, id, defaultRole = 0, source } = Astro.props;
+const bn = lang === 'bn';
+const roles = bn
+  ? [['work', 'আমি কাজ চাই'], ['lead', 'আমি দল চালাই'], ['crew', 'আমার দল দরকার'], ['gov', 'সরকারি / গণপ্রতিষ্ঠান']]
+  : [['work', 'I want work'], ['lead', 'I lead a team'], ['crew', 'I need a crew'], ['gov', 'Government / public body']];
+---
+<form class="k-form" data-early-access data-source={source} data-lang={lang}
+  data-done={bn ? 'ধন্যবাদ। কর্মীক আপনার এলাকায় চালু হলে একটি এসএমএস পাঠাব।' : 'Thank you. We’ll send one text when Kormik opens near you.'}
+  data-error-phone={bn ? '+880 এর পরে ১ দিয়ে শুরু ১০ অঙ্কের নম্বর দিন।' : 'Enter a 10-digit mobile number after +880, starting with 1.'}
+  data-error-server={bn ? 'এখন পাঠানো গেল না। একটু পরে আবার চেষ্টা করুন।' : 'Something went wrong. Please try again in a moment.'}>
+  <div aria-label={bn ? 'আপনার পরিচয়' : 'Which describes you?'} class="k-form__roles" role="radiogroup">
+    {roles.map(([value, label], i) => (
+      <button aria-checked={i === defaultRole ? 'true' : 'false'} class={i === defaultRole ? 'k-chip is-active' : 'k-chip'} role="radio" type="button" data-role={value}>{label}</button>
+    ))}
+  </div>
+  <div class="k-field"><span class="k-field__prefix">+880</span><label class="k-sr" for={id}>{bn ? 'মোবাইল নম্বর' : 'Mobile number'}</label><input autocomplete="tel-national" class="k-field__input" id={id} name="phone" inputmode="numeric" placeholder={bn ? 'আপনার মোবাইল নম্বর' : 'Your mobile number'} required type="tel" value="" maxlength="14" /><button class="k-btn k-btn--primary k-btn--md" type="submit">{bn ? 'আগাম নিবন্ধন করুন' : 'Join early access'}<span aria-hidden="true" class="k-btn__arrow">→</span></button></div>
+  <p class="k-form__error" role="alert" hidden></p>
+  <input class="k-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  <p class="k-form__note">{bn ? 'কর্মীক আপনার এলাকায় চালু হলে একটি এসএমএস। আর কিছু না।' : 'One text, when Kormik opens near you. Nothing else.'}</p>
+</form>

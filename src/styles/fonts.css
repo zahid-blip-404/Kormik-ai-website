@@ -1,0 +1,19 @@
+/* Ubuntu + Anek Bangla are self-hosted (converted from the agency's TTF files).
+   Arimo is the metric-compatible Helvetica fallback, self-hosted via @fontsource. */
+@font-face { font-family: "Ubuntu"; src: url("/fonts/Ubuntu-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Ubuntu"; src: url("/fonts/Ubuntu-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Ubuntu"; src: url("/fonts/Ubuntu-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Anek Bangla"; src: url("/fonts/AnekBangla-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Anek Bangla"; src: url("/fonts/AnekBangla-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Anek Bangla"; src: url("/fonts/AnekBangla-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Anek Bangla"; src: url("/fonts/AnekBangla-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+
+/* Bangla glyphs inside the Latin stacks (Ubuntu / Arimo) render in Anek Bangla,
+   so Bangla pages keep the brand face without changing any layout rule. */
+@font-face { font-family: "Ubuntu"; src: url("/fonts/AnekBangla-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; unicode-range: U+0964-0965, U+0980-09FE, U+200C-200D, U+25CC; }
+@font-face { font-family: "Ubuntu"; src: url("/fonts/AnekBangla-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; unicode-range: U+0964-0965, U+0980-09FE, U+200C-200D, U+25CC; }
+@font-face { font-family: "Ubuntu"; src: url("/fonts/AnekBangla-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; unicode-range: U+0964-0965, U+0980-09FE, U+200C-200D, U+25CC; }
+@font-face { font-family: "Arimo"; src: url("/fonts/AnekBangla-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; unicode-range: U+0964-0965, U+0980-09FE, U+200C-200D, U+25CC; }
+@font-face { font-family: "Arimo"; src: url("/fonts/AnekBangla-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; unicode-range: U+0964-0965, U+0980-09FE, U+200C-200D, U+25CC; }
+@font-face { font-family: "Arimo"; src: url("/fonts/AnekBangla-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; unicode-range: U+0964-0965, U+0980-09FE, U+200C-200D, U+25CC; }
+@font-face { font-family: "Arimo"; src: url("/fonts/AnekBangla-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; unicode-range: U+0964-0965, U+0980-09FE, U+200C-200D, U+25CC; }

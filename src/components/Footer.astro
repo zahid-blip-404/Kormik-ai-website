@@ -1,0 +1,35 @@
+---
+import { PAGES, localize, type Lang } from '../lib/i18n';
+
+type Sources = 'none' | 'lfs-findex' | 'lfs-wri-findex';
+interface Props { lang: Lang; sources?: Sources }
+const { lang, sources = 'none' } = Astro.props;
+const bn = lang === 'bn';
+const logo = bn ? '/brand/kormik-bangla-white.png' : '/brand/kormik-lockup-white.png';
+---
+<footer class="k-footer" data-theme="indigo">
+  <div class="k-container">
+    <div class="k-footer__top">
+      <div class="k-footer__brand">
+        <img alt={bn ? 'কর্মীক' : 'Kormik'} height="36" src={logo} />
+        <p class="k-footer__tag">{bn
+          ? 'একটি রেকর্ড, যা আপনার। বাংলাদেশের প্রতিটি অনানুষ্ঠানিক কাজের দিন, স্বীকৃত, পারিশ্রমিকপ্রাপ্ত ও সুরক্ষিত।'
+          : "A record that's yours. Every day of informal work in Bangladesh, recognised, paid and protected."}</p>
+      </div>
+      <nav aria-label={bn ? 'ফুটার' : 'Footer'} class="k-footer__links">
+        {PAGES.map((p) => <a href={localize(p.path, lang)}>{bn ? p.bn : p.en}</a>)}
+      </nav>
+    </div>
+    <div class="k-footer__base">
+      <span>{bn
+        ? '© ২০২৬ কর্মীক · kormik.com.bd · চালুর আগের প্রিভিউ, ঢাকায় তৈরি। এখনো চালু সেবা নয়।'
+        : '© 2026 Kormik · kormik.com.bd · Pre-launch preview, made in Dhaka. Not yet a live service.'}</span>
+      {sources === 'lfs-findex' && <span>{bn
+        ? 'তথ্যসূত্র: বিবিএস শ্রমশক্তি জরিপ ২০২৪ · বিশ্বব্যাংক গ্লোবাল ফাইন্ডেক্স ২০২৫'
+        : 'Figures: BBS Labour Force Survey 2024 · World Bank Global Findex 2025'}</span>}
+      {sources === 'lfs-wri-findex' && <span>{bn
+        ? 'তথ্যসূত্র: বিবিএস শ্রমশক্তি জরিপ ২০২৪ · বিবিএস মজুরি হার সূচক · বিশ্বব্যাংক গ্লোবাল ফাইন্ডেক্স ২০২৫'
+        : 'Figures: BBS Labour Force Survey 2024 · BBS Wage Rate Index · World Bank Global Findex 2025'}</span>}
+    </div>
+  </div>
+</footer>

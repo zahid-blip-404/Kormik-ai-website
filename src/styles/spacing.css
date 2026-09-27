@@ -1,0 +1,31 @@
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 48px;
+  --space-9: 56px;
+  --space-10: 80px;
+  --gutter: 80px;
+  --gutter-mobile: 20px;
+  --section-y: 96px;
+  --section-y-tight: 72px;
+  --container: 1280px;
+
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 24px 60px 0 #0d0e6033;
+  --shadow-raised: 0 12px 32px 0 #0d0e6026;
+
+  --focus-ring: 3px solid var(--focus);
+  --focus-offset: 3px;
+  --motion-fast: .15s ease; /* @kind other */
+  --lift: translateY(-1px); /* @kind other */
+}

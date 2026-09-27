@@ -1,0 +1,46 @@
+:root {
+  --font-head: Ubuntu, "Trebuchet MS", sans-serif;
+  --font-body: "Helvetica Neue", Helvetica, Arimo, Arial, sans-serif;
+  --font-bn: "Anek Bangla", "Noto Sans Bengali", sans-serif;
+
+  --fs-display-stat: 200px;
+  --fs-display-xl: 96px;
+  --fs-display-l: 72px;
+  --fs-heading-1: 58px;
+  --fs-heading-2: 44px;
+  --fs-heading-3: 32px;
+  --fs-heading-4: 24px;
+  --fs-statement: 26px;
+  --fs-lead: 20px;
+  --fs-body-lg: 17px;
+  --fs-body: 15px;
+  --fs-small: 13px;
+  --fs-button: 15px;
+  --fs-eyebrow: 13px;
+  --fs-label: 11px;
+  --fs-bn-display: 56px;
+  --fs-bn-lead: 24px;
+  --fs-bn-body: 16px;
+
+  --lh-bn-body: 1.7; /* @kind font */
+  --measure: 62ch;
+}
+
+/* Type styles (class names used by the source site) */
+.display-stat { font: 700 var(--fs-display-stat)/0.95 var(--font-head); letter-spacing: -7px; font-variant-numeric: tabular-nums; }
+.display-xl { font: 700 var(--fs-display-xl)/1 var(--font-head); letter-spacing: -2.5px; }
+.display-l { font: 700 var(--fs-display-l)/1 var(--font-head); letter-spacing: -2px; }
+.heading-1 { font: 700 var(--fs-heading-1)/1.1 var(--font-head); letter-spacing: -1.5px; }
+.heading-2 { font: 700 var(--fs-heading-2)/1.15 var(--font-head); letter-spacing: -1px; }
+.heading-3 { font: 700 var(--fs-heading-3)/1.2 var(--font-head); letter-spacing: -0.5px; }
+.heading-4 { font: 700 var(--fs-heading-4)/1.15 var(--font-head); }
+.statement { font: 500 var(--fs-statement)/1.3 var(--font-head); }
+.lead { font: 400 var(--fs-lead)/1.5 var(--font-body); max-width: 60ch; }
+.body-lg { font: 400 var(--fs-body-lg)/1.55 var(--font-body); }
+.body { font: 400 var(--fs-body)/1.5 var(--font-body); }
+.small { font: 400 var(--fs-small)/1.45 var(--font-body); }
+.eyebrow { font: 700 var(--fs-eyebrow)/1.2 var(--font-body); letter-spacing: 1.6px; text-transform: uppercase; }
+.label { font: 700 var(--fs-label)/1.2 var(--font-body); letter-spacing: 1.2px; text-transform: uppercase; }
+.bn-display { font: 700 var(--fs-bn-display)/1.25 var(--font-bn); }
+.bn-lead { font: 500 var(--fs-bn-lead)/1.5 var(--font-bn); }
+.bn-body { font: 400 var(--fs-bn-body)/var(--lh-bn-body) var(--font-bn); }
