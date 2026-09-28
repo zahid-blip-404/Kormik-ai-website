@@ -31,7 +31,12 @@ TEXT_ATTRS = ['alt', 'aria-label', 'placeholder', 'title']
 # design canvas (1316px / 1195px). They are kept exactly at 1316px and wider (so desktop matches the design)
 # and released below that, where they would otherwise clip the hero on tablets and phones.
 EXTRA_CSS = {
-    'home': '@media (max-width: 1315px) { [data-screen-label="Hero"] > .k-container { width: auto !important; height: auto !important; } [data-screen-label="Hero"] > .k-container > div { width: auto !important; height: auto !important; } }',
+    # The hero collage photos are placed in px for the 520 x 572.55 fist box; restated as percentages so the
+    # collage scales with the box on smaller screens (identical at the 520px desktop size).
+    'home': '#hero-mark img:nth-of-type(1) { left: 4.4231% !important; top: 2.2705% !important; width: 117.1154% !important; height: 92.9176% !important; } '
+            '#hero-mark img:nth-of-type(2) { left: 2.1154% !important; top: 11.5274% !important; width: 24.2308% !important; height: 19.5616% !important; } '
+            '#hero-mark img:nth-of-type(3) { left: 30% !important; top: 0 !important; width: 20% !important; height: 31.7876% !important; } '
+            '@media (max-width: 1315px) { [data-screen-label="Hero"] > .k-container { width: auto !important; height: auto !important; } [data-screen-label="Hero"] > .k-container > div { width: auto !important; height: auto !important; } }',
 }
 BN_DIGITS = str.maketrans('0123456789', '০১২৩৪৫৬৭৮৯')
 
